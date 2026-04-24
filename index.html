@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>共振 Resonance — Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --font-heading: 'Playfair Display', 'Noto Serif TC', Georgia, serif;
+      --font-body:    'DM Sans', 'Noto Sans TC', system-ui, sans-serif;
+
+      --color-cream:            oklch(96.5% 0.015 75);
+      --color-cream-dark:       oklch(93%   0.018 75);
+      --color-card-bg:          oklch(97.5% 0.01  80);
+
+      --color-terracotta:       oklch(62%   0.14  45);
+      --color-terracotta-light: oklch(88%   0.08  55);
+
+      --color-lavender:         oklch(80%   0.07  290);
+      --color-sage:             oklch(78%   0.07  140);
+      --color-yellow:           oklch(88%   0.10  90);
+      --color-sky:              oklch(82%   0.07  220);
+
+      --color-text:             oklch(26%   0.03  60);
+      --color-text-muted:       oklch(52%   0.04  70);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; background: oklch(16% 0.02 60); font-family: var(--font-body); color: var(--color-text); -webkit-font-smoothing: antialiased; }
+    body { overflow: hidden; }
+    deck-stage { display: block; width: 100%; height: 100vh; }
+    deck-stage > section { background: var(--color-cream); }
+  </style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" style="--bg: oklch(16% 0.02 60);">
+  <section data-label="01 Cover"      id="s1"></section>
+  <section data-label="02 Thesis"     id="s2"></section>
+  <section data-label="03 Beliefs"    id="s3"></section>
+  <section data-label="04 Why Now"    id="s4"></section>
+  <section data-label="05 Versus"     id="s5"></section>
+  <section data-label="06 Product"    id="s6"></section>
+  <section data-label="07 AI Meets"   id="s7"></section>
+  <section data-label="08 Who"        id="s8"></section>
+  <section data-label="09 Battle"     id="s9"></section>
+  <section data-label="10 How to Win" id="s10"></section>
+  <section data-label="11 Closing"    id="s11"></section>
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+
+<script type="text/babel" src="components/atoms.jsx"></script>
+<script type="text/babel" src="components/slide_parts.jsx"></script>
+<script type="text/babel" src="components/slides.jsx"></script>
+
+<script type="text/babel">
+  const mounts = [
+    ['s1',  Slide01Cover],
+    ['s2',  Slide02Thesis],
+    ['s3',  Slide03Beliefs],
+    ['s4',  Slide04WhyNow],
+    ['s5',  Slide05Versus],
+    ['s6',  Slide06Product],
+    ['s7',  Slide07AI],
+    ['s8',  Slide08WhoWeServe],
+    ['s9',  Slide09Battlefield],
+    ['s10', Slide10HowToWin],
+    ['s11', Slide11Closing],
+  ];
+  mounts.forEach(([id, Comp]) => {
+    const el = document.getElementById(id);
+    if (el) ReactDOM.createRoot(el).render(<Comp />);
+  });
+</script>
+
+</body>
+</html>
