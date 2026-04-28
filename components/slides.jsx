@@ -520,7 +520,7 @@ function Slide07WhyUs() {
     },
     {
       num: '03',
-      title: '共振\n線上平臺',
+      title: '共振\n真實故事',
       body: '發現連結的核心是信念的相遇。打造線上平臺，讓每個人的獨特洞見找到共鳴，形成真正的歸屬。',
       images: ['images/resonance.jpg'],
       bullets: [],
