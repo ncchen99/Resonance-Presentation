@@ -172,7 +172,7 @@ function Slide03Beliefs() {
     {
       tag: '立體',
       label: '人，生而立體',
-      textNode: <>每個人都是獨一無二的立體存在，擁有自己的哲學與體悟。追求歸屬感讓我們壓縮了獨特的自己，但我們相信：<Highlight color="oklch(35% 0.17 45)">只需一個人與你共振，你便能與全世界連結</Highlight>。</>,
+      textNode: <>每個人都是獨一無二的立體存在，擁有自己的哲學與體悟。追求歸屬感讓我們壓縮了獨特的自己，但我們相信：<Highlight color="oklch(35% 0.17 45)">每個共振的點，都是通往世界的線</Highlight>。</>,
       color: 'var(--color-terracotta-light)',
       seed: 13,
     },
@@ -808,11 +808,12 @@ function Slide11Closing() {
           margin: 0,
           textWrap: 'balance',
         }}>
-          你寫一張卡片，<br />
-          我們讓世界上<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-yellow)' }}>
-            與你同頻的靈魂
+          人人都是故事的分享者<br />
+          獨一無二的你 <br />
+          <span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-yellow)' }}>
+            必能為世界帶來漣漪
             <Squiggle color="var(--yellow)" />
-          </span><br />看見它。
+          </span><br />
         </h2>
         <p style={{
           fontFamily: 'var(--font-heading)',
