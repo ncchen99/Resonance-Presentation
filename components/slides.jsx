@@ -320,7 +320,7 @@ function Slide05Versus() {
           titleSize={TYPE_SCALE.title}
         />
 
-        <div style={{ marginTop: 60, display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: 40, alignItems: 'stretch', flex: 1 }}>
+        <div style={{ marginTop: 60, display: 'grid', gridTemplateColumns: '580px auto 580px', gap: 48, alignItems: 'stretch', justifyContent: 'center', flex: 1 }}>
           {/* Left: traditional */}
           <HandDrawnCard seed={19} fill="oklch(92% 0.01 75)" stroke="oklch(45% 0.03 70)" padding={44}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20, height: '100%' }}>
@@ -328,7 +328,7 @@ function Slide05Versus() {
                 傳統社群
               </div>
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: 42, fontWeight: 700, color: 'var(--color-text-muted)', letterSpacing: '-0.02em', lineHeight: 1.15, textDecoration: 'line-through', textDecorationColor: 'oklch(55% 0.04 70 / 0.55)' }}>
-                Medium · Threads · 小紅書
+                Medium · Threads
               </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 14, marginTop: 8 }}>
                 {rows.map((r, i) => (
@@ -341,12 +341,12 @@ function Slide05Versus() {
           </HandDrawnCard>
 
           {/* Center: arrow */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 18 }}>
-            <svg width="80" height="200" viewBox="0 0 80 200" style={{ overflow: 'visible' }}>
-              <path d="M 40,10 C 48,60 32,140 40,190" stroke="var(--color-terracotta)" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.7" />
-              <path d="M 28,178 L 40,192 L 52,178" stroke="var(--color-terracotta)" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+            <svg width="180" height="60" viewBox="0 0 180 60" style={{ overflow: 'visible' }}>
+              <path d="M 10,30 C 50,22 130,38 170,30" stroke="var(--color-terracotta)" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.7" />
+              <path d="M 158,18 L 172,30 L 158,42" stroke="var(--color-terracotta)" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 26, color: 'var(--color-terracotta)', writingMode: 'horizontal-tb' }}>
+            <span style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 26, color: 'var(--color-terracotta)' }}>
               shift
             </span>
           </div>
