@@ -932,10 +932,10 @@ function Slide12BusinessModel() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide13Budget() {
   const items = [
-    { label: '產品開發', en: 'Development', amount: 40000, pct: 40, color: 'var(--color-terracotta)', detail: 'App 前後端開發、AI 推薦引擎整合' },
+    { label: '產品開發', en: 'Development', amount: 30000, pct: 30, color: 'var(--color-terracotta)', detail: 'AI 推薦引擎、APP 上架費用' },
     { label: '行銷推廣', en: 'Marketing', amount: 20000, pct: 20, color: 'var(--color-sage)', detail: '社群行銷、KOL 合作、早期用戶招募' },
     { label: 'UI/UX 設計', en: 'Design', amount: 15000, pct: 15, color: 'var(--color-lavender)', detail: '介面設計、品牌識別系統、插圖素材' },
-    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 15000, pct: 15, color: 'var(--color-sky)', detail: '雲端主機、資料庫服務、API 費用' },
+    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 25000, pct: 25, color: 'var(--color-sky)', detail: '雲端主機、資料庫服務、API 費用' },
     { label: '雜支備用', en: 'Contingency', amount: 10000, pct: 10, color: 'var(--color-yellow)', detail: '法律文件、行政費用、緊急備用金' },
   ];
 
