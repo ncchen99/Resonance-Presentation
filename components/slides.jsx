@@ -453,10 +453,10 @@ function Slide06Product() {
               <HandDrawnCard seed={131} fill="oklch(93% 0.042 140)" stroke="oklch(38% 0.11 140)" padding={36}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 22, minHeight: 540 }}>
                   <div style={{ position: 'relative', width: '100%', paddingBottom: '62%', borderRadius: '14px 18px 12px 16px', overflow: 'hidden', flexShrink: 0 }}>
-                    <img 
-                      src="assets/19 歲時破產，反而是覺察幸福的開端.jpg" 
-                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
-                      alt="19 歲時破產，反而是覺察幸福的開端" 
+                    <img
+                      src="assets/19 歲時破產，反而是覺察幸福的開端.jpg"
+                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                      alt="19 歲時破產，反而是覺察幸福的開端"
                     />
                   </div>
                   <TagPill color="oklch(90% 0.075 88)">Thought</TagPill>
@@ -595,7 +595,7 @@ function Slide08Team() {
   const members = [
     { initials: '陳', name: '陳念誠', dept: '資訊工程學系大五', role: 'Tuckin App 發想人', color: 'var(--color-terracotta-light)', seed: 11, photo: 'assets/陳念誠.jpg' },
     { initials: '蕭', name: '蕭力文', dept: '工程科學系碩二', role: 'App 開發者・AI 應用專長', color: 'var(--color-sage)', seed: 37 },
-    { initials: '方', name: '方昱晴', dept: '資訊工程學系大三', role: '課程真實聚會提案驗證・賣帽帽負責人', color: 'var(--color-lavender)', seed: 61 },
+    { initials: '方', name: '方昱晴', dept: '資訊工程學系大三', role: '驗證真實聚會提案・賣帽帽負責人', color: 'var(--color-lavender)', seed: 61 },
     { initials: '鄭', name: '鄭義信', dept: '成大工資管所 碩士\n工資管・電機 雙學士', role: '翔超科技 董事\n泳鉅鑫再生塑料 資訊顧問', color: 'var(--color-yellow)', seed: 83 },
   ];
 
@@ -621,7 +621,7 @@ function Slide08Team() {
             <HandDrawnCard key={i} seed={m.seed} fill={m.color} stroke="oklch(36% 0.06 60 / 0.55)" padding={32}>
               <div style={{ display: 'flex', flexDirection: 'row', gap: 24, alignItems: 'flex-start', height: '100%' }}>
                 <div style={{ flexShrink: 0 }}>
-                  <HandDrawnAvatar initials={m.initials} size={120} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} src={m.photo || null} />
+                  <HandDrawnAvatar initials={m.initials} size={160} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} src={m.photo || null} />
                 </div>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, alignContent: 'start' }}>
                   <div style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
@@ -932,11 +932,11 @@ function Slide12BusinessModel() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide13Budget() {
   const items = [
-    { label: '產品開發', en: 'Development',    amount: 40000, pct: 40, color: 'var(--color-terracotta)',       detail: 'App 前後端開發、AI 推薦引擎整合' },
-    { label: '行銷推廣', en: 'Marketing',       amount: 20000, pct: 20, color: 'var(--color-sage)',             detail: '社群行銷、KOL 合作、早期用戶招募' },
-    { label: 'UI/UX 設計', en: 'Design',        amount: 15000, pct: 15, color: 'var(--color-lavender)',         detail: '介面設計、品牌識別系統、插圖素材' },
-    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 15000, pct: 15, color: 'var(--color-sky)',         detail: '雲端主機、資料庫服務、API 費用' },
-    { label: '雜支備用', en: 'Contingency',     amount: 10000, pct: 10, color: 'var(--color-yellow)',           detail: '法律文件、行政費用、緊急備用金' },
+    { label: '產品開發', en: 'Development', amount: 40000, pct: 40, color: 'var(--color-terracotta)', detail: 'App 前後端開發、AI 推薦引擎整合' },
+    { label: '行銷推廣', en: 'Marketing', amount: 20000, pct: 20, color: 'var(--color-sage)', detail: '社群行銷、KOL 合作、早期用戶招募' },
+    { label: 'UI/UX 設計', en: 'Design', amount: 15000, pct: 15, color: 'var(--color-lavender)', detail: '介面設計、品牌識別系統、插圖素材' },
+    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 15000, pct: 15, color: 'var(--color-sky)', detail: '雲端主機、資料庫服務、API 費用' },
+    { label: '雜支備用', en: 'Contingency', amount: 10000, pct: 10, color: 'var(--color-yellow)', detail: '法律文件、行政費用、緊急備用金' },
   ];
 
   return (
