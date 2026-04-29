@@ -1,6 +1,6 @@
 // ── Resonance Pitch Deck · Slides 01–11 ──────────────────────────────────────
 
-const TOTAL_SLIDES = 15;
+const TOTAL_SLIDES = 16;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDE 01 — Cover
@@ -316,7 +316,7 @@ function Slide05Versus() {
       chrome={<><BrandMark /><SlideNumber n={5} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
           eyebrow="第三章 · 定位"
-          title="傳統社群 vs. 共振"
+          title="傳統平台 vs. 共振"
           titleSize={TYPE_SCALE.title}
         />
 
@@ -325,7 +325,7 @@ function Slide05Versus() {
           <HandDrawnCard seed={19} fill="oklch(92% 0.01 75)" stroke="oklch(45% 0.03 70)" padding={44}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20, height: '100%' }}>
               <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600 }}>
-                傳統社群
+                傳統社群與平台
               </div>
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: 42, fontWeight: 700, color: 'var(--color-text-muted)', letterSpacing: '-0.02em', lineHeight: 1.15, textDecoration: 'line-through', textDecorationColor: 'oklch(55% 0.04 70 / 0.55)' }}>
                 Medium · Threads
@@ -454,7 +454,7 @@ function Slide06Product() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 22, minHeight: 540 }}>
                   <div style={{ position: 'relative', width: '100%', paddingBottom: '62%', borderRadius: '14px 18px 12px 16px', overflow: 'hidden', flexShrink: 0 }}>
                     <img
-                      src="assets/19 歲時破產，反而是覺察幸福的開端.jpg"
+                      src="images/story-card-breakdown.webp"
                       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
                       alt="19 歲時破產，反而是覺察幸福的開端"
                     />
@@ -491,7 +491,7 @@ function Slide07WhyUs() {
       num: '01',
       title: 'Tuckin\n用聚餐，連起溫度',
       body: '以個性與飲食習慣配對成大不同科系的陌生同學共餐，探索人與人相聚的起點，並於雙平臺上架。',
-      images: ['images/tuckin-app-1.jpg', 'images/tuckin-app-2.jpg'],
+      images: ['images/project-tuckin-1.webp', 'images/project-tuckin-2.webp'],
       bullets: [
         '上線後吸引 200 位同學註冊',
         '第一次聚餐就形成 6 組同學，共 30 人參加',
@@ -503,7 +503,7 @@ function Slide07WhyUs() {
       num: '02',
       title: '真實聚會\n精細組合',
       body: '保留線下場域設計，以興趣、人生狀態、邊界與聚會習慣多維配對，讓真正相似的人面對面相聚。',
-      images: ['images/gathering-1.jpg', 'images/gathering-2.jpg'],
+      images: ['images/project-gathering-1.webp', 'images/project-gathering-2.webp'],
       bullets: [
         '透過表單實現 POC',
         '實際舉辦真實聚會',
@@ -515,7 +515,7 @@ function Slide07WhyUs() {
       num: '03',
       title: '共振\n真實故事',
       body: '發現連結的核心是信念的相遇。打造線上平臺，讓每個人的獨特洞見找到共鳴，形成真正的歸屬。',
-      images: ['images/resonance.jpg'],
+      images: ['images/project-resonance.webp'],
       bullets: [],
       fill: 'var(--color-terracotta-light)',
       stroke: 'oklch(36% 0.13 45)',
@@ -593,10 +593,10 @@ function Slide07WhyUs() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide08Team() {
   const members = [
-    { initials: '陳', name: '陳念誠', dept: '資訊工程學系大五', role: 'Tuckin App 發想人', color: 'var(--color-terracotta-light)', seed: 11, photo: 'assets/陳念誠.jpg' },
-    { initials: '蕭', name: '蕭力文', dept: '工程科學系碩二', role: 'App 開發者・AI 應用專長', color: 'var(--color-sage)', seed: 37 },
-    { initials: '方', name: '方昱晴', dept: '資訊工程學系大三', role: '驗證真實聚會提案・賣帽帽負責人', color: 'var(--color-lavender)', seed: 61 },
-    { initials: '鄭', name: '鄭義信', dept: '成大工資管所 碩士\n工資管・電機 雙學士', role: '翔超科技 董事\n泳鉅鑫再生塑料 資訊顧問', color: 'var(--color-yellow)', seed: 83 },
+    { initials: '陳', name: '陳念誠', dept: '資訊工程學系大五', role: 'Tuckin App 發想人', color: 'var(--color-terracotta-light)', seed: 11, photo: 'images/member-chen.webp' },
+    { initials: '蕭', name: '蕭力文', dept: '工程科學系碩二', role: 'App 開發者・AI 應用專長', color: 'var(--color-sage)', seed: 37, photo: 'images/member-hsiao.webp' },
+    { initials: '方', name: '方昱晴', dept: '資訊工程學系大三', role: '驗證真實聚會提案・賣帽帽負責人', color: 'var(--color-lavender)', seed: 61, photo: 'images/member-fang.webp' },
+    { initials: '鄭', name: '鄭義信', dept: '成大工資管所 碩士\n工資管・電機 雙學士', role: '翔超科技 董事\n泳鉅鑫再生塑料 資訊顧問', color: 'var(--color-yellow)', seed: 83, photo: 'images/member-cheng.webp' },
   ];
 
   return (
@@ -714,50 +714,62 @@ function Slide10Battlefield() {
       chrome={<><BrandMark /><SlideNumber n={10} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
           eyebrow="第八章 · 戰場 & 對手"
-          title="真正的對手，不是 Medium，而是 doomscrolling 本身"
-          titleSize={48}
+          title="困難與產品創新"
+          titleSize={TYPE_SCALE.titleSm}
         />
 
-        <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, flex: 1 }}>
-          {/* Where */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-            <Eyebrow color="var(--color-text-muted)">在哪打</Eyebrow>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 52, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', margin: 0, lineHeight: 1.15 }}>
-              台灣華文圈 → 全球
+        <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 1px 1fr', columnGap: 40, flex: 1 }}>
+          {/* 起始點 — where we begin */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+            <Eyebrow color="var(--color-text-muted)">戰場 · 選擇的場域</Eyebrow>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 40, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', margin: 0, lineHeight: 1.2 }}>
+              打造自己愛用的產品，<br />從台灣出發，走向世界
             </h3>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.55, margin: 0, textWrap: 'pretty' }}>
-              母語直覺最強的市場先贏。MLP (Minimum Lovable Product) 上線即內建 AI 翻譯，早期使用者的卡片能被英 / 日 / 韓看見。
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginTop: 4 }}>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 24, fontWeight: 700, color: 'var(--color-text)', padding: '8px 18px', background: 'var(--color-yellow)', borderRadius: 999 }}>
+                自己的生活圈
+              </span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 26, color: 'var(--color-text-muted)' }}>→</span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 24, fontWeight: 700, color: 'var(--color-text)', padding: '8px 18px', background: 'oklch(92% 0.05 75)', borderRadius: 999 }}>
+                台灣
+              </span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 26, color: 'var(--color-text-muted)' }}>→</span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 24, fontWeight: 700, color: 'var(--color-cream)', padding: '8px 18px', background: 'var(--color-terracotta)', borderRadius: 999 }}>
+                世界
+              </span>
+            </div>
+
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.6, margin: 0, textWrap: 'pretty', marginTop: 6 }}>
+              共振相信，<Highlight color="oklch(35% 0.17 45)">每一個人都有值得被聽見的故事</Highlight>。<br />但宏大願景必須始於一個真心喜愛產品的使用者。
             </p>
-            <HandDrawnCard seed={241} fill="var(--color-yellow)" stroke="oklch(44% 0.12 88)" padding={28}>
-              <p style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 30, color: 'var(--color-text)', margin: 0, lineHeight: 1.4 }}>
-                「我的故事居然有東京的人回應!」<br />
-                <span style={{ fontFamily: 'var(--font-body)', fontStyle: 'normal', fontSize: 22, color: 'var(--color-text-muted)' }}>
-                  ── 這會是早期留存的關鍵體驗
-                </span>
-              </p>
-            </HandDrawnCard>
           </div>
 
-          {/* Who */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-            <Eyebrow color="var(--color-text-muted)">跟誰打</Eyebrow>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <div style={{ fontFamily: 'var(--font-body)', fontSize: 24, color: 'var(--color-text-muted)', letterSpacing: '0.04em' }}>
-                表面競品
+          {/* vertical divider */}
+          <div style={{ background: 'oklch(65% 0.06 70 / 0.35)', borderRadius: 999, margin: '8px 0' }} />
+
+          {/* 對手 — who we're up against */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <Eyebrow color="var(--color-text-muted)">對手 · 內部的痛點</Eyebrow>
+
+            <HandDrawnCard seed={188} fill="oklch(96% 0.018 70)" stroke="oklch(60% 0.04 70 / 0.7)" padding={24} strokeWidth={1.5}>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 18, color: 'var(--color-text-muted)', letterSpacing: '0.08em', marginBottom: 8, textTransform: 'uppercase', fontWeight: 600 }}>
+                表面的競品
               </div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 38, fontWeight: 700, color: 'var(--color-text-muted)', textDecoration: 'line-through', textDecorationColor: 'oklch(55% 0.04 70 / 0.6)', letterSpacing: '-0.01em' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 30, fontWeight: 700, color: 'var(--color-text-muted)', textDecoration: 'line-through', textDecorationColor: 'oklch(55% 0.04 70 / 0.6)', letterSpacing: '-0.01em' }}>
                 Medium · Threads · 小紅書
               </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 16 }}>
-              <div style={{ fontFamily: 'var(--font-body)', fontSize: 24, color: 'var(--color-terracotta)', letterSpacing: '0.04em', fontWeight: 600 }}>
+            </HandDrawnCard>
+
+            <HandDrawnCard seed={233} fill="var(--color-terracotta-light)" stroke="oklch(38% 0.11 55)" padding={28}>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 18, color: 'var(--color-terracotta)', letterSpacing: '0.08em', fontWeight: 700, marginBottom: 10, textTransform: 'uppercase' }}>
                 真正的對手
               </div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 48, fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 30, fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.3, letterSpacing: '-0.01em' }}>
                 Doomscrolling 本身，<br />
                 <span style={{ color: 'var(--color-terracotta)' }}>以及讓人覺得「自己不夠格發聲」的世界。</span>
               </div>
-            </div>
+            </HandDrawnCard>
           </div>
         </div>
       </div></SlideFrame>
@@ -859,7 +871,7 @@ function Slide12BusinessModel() {
       chrome={<><BrandMark /><SlideNumber n={12} total={TOTAL_SLIDES} /></>}>
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
-          eyebrow="第十章 · 營運模式"
+          eyebrow="第十章 · 營收模式"
           title="思想流通，永遠免費"
           highlight="永遠免費"
           titleSize={TYPE_SCALE.title}
@@ -1186,14 +1198,86 @@ function Slide14Timeline() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 15 — Closing: our belief
+// SLIDE 15 — Product Prototype
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide15Closing() {
+function Slide15Prototype() {
+  const screens = [
+    {
+      src: 'assets/demo1.png',
+      label: '首頁',
+      desc: '透過介面與體驗的設計，讓這份使命自然地被傳遞。在每一個細節中，都貫徹有機、人性與溫暖的設計原則。',
+      fill: 'var(--color-terracotta-light)',
+      stroke: 'oklch(38% 0.11 55)',
+      seed: 361,
+    },
+    {
+      src: 'assets/demo2.png',
+      label: '故事探索頁',
+      desc: '卡片式瀏覽介面讓使用者快速找到值得共鳴的故事，每張卡片呈現故事精華、分類標籤與作者，讓同頻的人自然相遇。',
+      fill: 'oklch(94% 0.032 290)',
+      stroke: 'oklch(42% 0.09 290)',
+      seed: 377,
+    },
+  ];
+
+  return (
+    <SlideFrame background="var(--color-cream-dark)" grain={0.05}
+      chrome={<><BrandMark /><SlideNumber n={15} total={TOTAL_SLIDES} /></>}
+      decor={
+        <>
+          <div style={{ position: 'absolute', top: '-8%', right: '-5%', opacity: 0.18, pointerEvents: 'none' }}>
+            <OrganiBlob variant={0} fill="var(--color-terracotta-light)" size={560} />
+          </div>
+          <div style={{ position: 'absolute', bottom: '-10%', left: '-4%', opacity: 0.14, pointerEvents: 'none' }}>
+            <OrganiBlob variant={4} fill="var(--color-lavender)" size={480} />
+          </div>
+        </>
+      }
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <SectionTitle
+          eyebrow="第十三章 · 產品雛形"
+          title="我們正在打造的樣子"
+          highlight="正在打造"
+          titleSize={TYPE_SCALE.titleSm}
+        />
+        <div style={{ marginTop: 44, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, flex: 1, minHeight: 0 }}>
+          {screens.map((screen, i) => (
+            <HandDrawnCard key={i} seed={screen.seed} fill={screen.fill} stroke={screen.stroke} padding={32}>
+              <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: 20 }}>
+                <div style={{ flex: 1, borderRadius: 12, overflow: 'hidden', border: `1.5px solid ${screen.stroke}`, minHeight: 0 }}>
+                  <img
+                    src={screen.src}
+                    alt={screen.label}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+                  />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 800, color: 'var(--color-text)', marginBottom: 10, lineHeight: 1.1 }}>
+                    {screen.label}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.6 }}>
+                    {screen.desc}
+                  </div>
+                </div>
+              </div>
+            </HandDrawnCard>
+          ))}
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SLIDE 16 — Closing: our belief
+// ═══════════════════════════════════════════════════════════════════════════
+function Slide16Closing() {
   return (
     <SlideFrame
       background="var(--color-terracotta)"
       grain={0.08}
-      chrome={<><BrandMark dark /><SlideNumber n={15} total={TOTAL_SLIDES} dark /></>}
+      chrome={<><BrandMark dark /><SlideNumber n={16} total={TOTAL_SLIDES} dark /></>}
       decor={
         <>
           <div style={{ position: 'absolute', top: '-12%', left: '-8%', opacity: 0.16, pointerEvents: 'none' }}>
@@ -1242,5 +1326,6 @@ Object.assign(window, {
   Slide01Cover, Slide02Thesis, Slide03Beliefs, Slide04WhyNow,
   Slide05Versus, Slide06Product, Slide07WhyUs, Slide08Team,
   Slide09WhoWeServe, Slide10Battlefield, Slide11HowToWin,
-  Slide12BusinessModel, Slide13Budget, Slide14Timeline, Slide15Closing,
+  Slide12BusinessModel, Slide13Budget, Slide14Timeline,
+  Slide15Prototype, Slide16Closing,
 });

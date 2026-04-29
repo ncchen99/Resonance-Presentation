@@ -55,8 +55,9 @@
   <section data-label="11 How to Win"  id="s11"></section>
   <section data-label="12 Business"   id="s12"></section>
   <section data-label="13 Budget"     id="s13"></section>
-  <section data-label="14 Timeline"   id="s14"></section>
-  <section data-label="15 Closing"    id="s15"></section>
+  <section data-label="14 Timeline"    id="s14"></section>
+  <section data-label="15 Prototype"  id="s15"></section>
+  <section data-label="16 Closing"    id="s16"></section>
 </deck-stage>
 
 <script src="deck-stage.js"></script>
@@ -81,7 +82,8 @@
     ['s12', Slide12BusinessModel],
     ['s13', Slide13Budget],
     ['s14', Slide14Timeline],
-    ['s15', Slide15Closing],
+    ['s15', Slide15Prototype],
+    ['s16', Slide16Closing],
   ];
   mounts.forEach(([id, Comp]) => {
     const el = document.getElementById(id);
