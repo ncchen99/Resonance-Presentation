@@ -679,18 +679,18 @@ function Slide08Team() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide09WhoWeServe() {
   const signals = [
-    'Medium / Substack 訂閱者',
-    '會在 Threads 寫長文的人',
-    '讀過《卡片盒筆記》《原子習慣》',
-    '追蹤過幾個 KOL，心裡卻有個聲音說「我想的也不差」',
+    'Notion / 日記 App 的重度使用者，但從來不發出去',
+    '在 Podcast 留言區寫過長評，卻沒有自己的頻道',
+    '讀書會裡發言最有深度、但平時最不常說話的那種人',
+    '想過寫部落格，最後因為「我沒資格」或「太麻煩」而作罷',
   ];
   return (
     <SlideFrame background="var(--color-cream-dark)" grain={0.05}
       chrome={<><BrandMark /><SlideNumber n={9} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
           eyebrow="第七章 · 第一戰場"
-          title="服務誰：華文圈的思想工作者"
-          highlight="思想工作者"
+          title="服務誰：有感，說不出口的城市生活者"
+          highlight="有感，說不出口"
           titleSize={TYPE_SCALE.titleSm}
         />
 
@@ -698,17 +698,17 @@ function Slide09WhoWeServe() {
           {/* Persona card */}
           <HandDrawnCard seed={211} fill="var(--color-cream)" stroke="oklch(40% 0.06 60)" padding={48} style={{ width: 520 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24, height: '100%' }}>
-              <HandDrawnAvatar initials="?" size={92} color="var(--color-terracotta-light)" seed={7} />
+              <HandDrawnAvatar initials="？" size={92} color="var(--color-terracotta-light)" seed={7} />
               <div>
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, marginBottom: 8 }}>
-                  Primary persona
+                  The Quiet Observer
                 </div>
                 <div style={{ fontFamily: 'var(--font-heading)', fontSize: 56, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.05 }}>
                   25–40 歲
                 </div>
               </div>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.55, margin: 0, textWrap: 'pretty' }}>
-                讀過一些書、想過一些事，有強烈分享慾，卻又覺得「我的經歷沒那麼厲害」的華文創意 / 知識工作者。
+                在城市生活，通勤、洗澡、走路時心裡說了很多話。想被理解，但不知道誰會懂；想開口，卻覺得自己「講不好」。
               </p>
             </div>
           </HandDrawnCard>
@@ -716,7 +716,7 @@ function Slide09WhoWeServe() {
           {/* Signals */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, marginBottom: 32 }}>
-              典型訊號
+              行為訊號（已經在說，只是沒有出口）
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               {signals.map((s, i) => (
