@@ -408,7 +408,7 @@ function Slide06Product() {
             margin: 0,
             textWrap: 'balance',
           }}>
-            最小單位：<br />一張<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>
+            最小單位：一張<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>
               故事卡片
               <Squiggle color="var(--color-terracotta)" />
             </span>
