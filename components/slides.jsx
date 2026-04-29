@@ -39,7 +39,7 @@ function Slide01Cover() {
 
         <h1 style={{
           fontFamily: 'var(--font-heading)',
-          fontSize: 60,
+          fontSize: 64,
           fontWeight: 800,
           lineHeight: 1.3,
           letterSpacing: '-0.03em',
@@ -50,7 +50,7 @@ function Slide01Cover() {
           lineBreak: 'strict',
         }}>
           讓世界上每個<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)', whiteSpace: 'nowrap' }}>
-            同頻的靈魂，
+            同頻的靈魂
             <Squiggle color="var(--color-terracotta)" />
           </span><br />都能透過真實故事彼此相遇
         </h1>
@@ -100,7 +100,7 @@ function Slide02Thesis() {
           }}>"</span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 76,
+            fontSize: 64,
             fontWeight: 800,
             lineHeight: 1.18,
             letterSpacing: '-0.025em',
@@ -132,23 +132,33 @@ function Slide02Thesis() {
           </p>
         </div>
 
-        <div style={{ marginTop: 72, maxWidth: 1500, display: 'flex', flexDirection: 'column', gap: 0 }}>
+        <div style={{ marginTop: 56, maxWidth: 1500, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
           {[
             {
               anchor: '歸屬',
               text: '有人說出了你心裡一直有、卻說不清楚的話──那一刻你知道，這個世界上有人和你同頻。你並不孤單。',
-              color: 'var(--color-terracotta)',
+              fill: 'var(--color-terracotta-light)',
+              textColor: 'oklch(35% 0.17 45)',
+              seed: 13,
             },
             {
               anchor: '渴望',
               text: '當你的故事讓另一個人共振，你的想法終於被真正看見──不是為了追蹤數，而是為了真實的連結。',
-              color: 'oklch(42% 0.09 290)',
+              fill: 'var(--color-lavender)',
+              textColor: 'oklch(38% 0.1 290)',
+              seed: 29,
             },
           ].map(item => (
-            <div key={item.anchor} style={{ display: 'flex', alignItems: 'baseline', gap: 36, borderTop: '1px solid oklch(36% 0.06 60 / 0.15)', paddingTop: 32, paddingBottom: 32 }}>
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 48, fontWeight: 800, color: item.color, minWidth: 96, lineHeight: 1, flexShrink: 0 }}>{item.anchor}</span>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.65, margin: 0 }}>{item.text}</p>
-            </div>
+            <HandDrawnCard key={item.anchor} seed={item.seed} fill={item.fill} stroke="oklch(36% 0.06 60 / 0.55)" padding={40}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 44, fontWeight: 800, lineHeight: 1, color: 'var(--color-text)', opacity: 0.9 }}>
+                  {item.anchor}
+                </div>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, lineHeight: 1.65, color: 'var(--color-text)', margin: 0, textWrap: 'pretty' }}>
+                  {item.text}
+                </p>
+              </div>
+            </HandDrawnCard>
           ))}
         </div>
       </div></SlideFrame>
@@ -160,9 +170,15 @@ function Slide02Thesis() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Highlight({ color, children }) {
   return (
-    <span style={{ position: 'relative', display: 'inline-block', color, whiteSpace: 'nowrap' }}>
+    <span style={{
+      color,
+      textDecorationLine: 'underline',
+      textDecorationStyle: 'wavy',
+      textDecorationColor: color,
+      textDecorationThickness: '0.1em',
+      textUnderlineOffset: '0.25em',
+    }}>
       {children}
-      <Squiggle color={color} />
     </span>
   );
 }
@@ -203,14 +219,14 @@ function Slide03Beliefs() {
         <div style={{ marginTop: 80, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 40, flex: 1 }}>
           {beliefs.map((b, i) => (
             <HandDrawnCard key={i} seed={b.seed} fill={b.color} stroke="oklch(36% 0.06 60 / 0.6)" padding={48}>
-              <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', minHeight: 420 }}>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 140, fontWeight: 800, lineHeight: 0.9, color: 'var(--color-text)', opacity: 0.92 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start', gap: 32, minHeight: 340 }}>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 80, fontWeight: 800, lineHeight: 0.9, color: 'var(--color-text)', opacity: 0.92 }}>
                   {b.tag}
                 </div>
                 <div>
                   <p style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: TYPE_SCALE.bodyLg,
+                    fontSize: TYPE_SCALE.body,
                     fontWeight: 700,
                     color: 'var(--color-text)',
                     margin: '0 0 16px 0',
@@ -253,9 +269,8 @@ function Slide04WhyNow() {
     ><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
           eyebrow="第二章 · 為什麼是現在"
-          title="AI 第一次讓我們有機會，有發心地建造一個平台"
+          title="AI 讓我們有機會，有發心地建造一個平台"
           highlight="有發心地"
-          titleSize={TYPE_SCALE.titleSm}
         />
 
         <div style={{ marginTop: 72, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, flex: 1 }}>
@@ -317,7 +332,6 @@ function Slide05Versus() {
         <SectionTitle
           eyebrow="第三章 · 定位"
           title="傳統平台 vs. 共振"
-          titleSize={TYPE_SCALE.title}
         />
 
         <div style={{ marginTop: 60, display: 'grid', gridTemplateColumns: '580px auto 580px', gap: 48, alignItems: 'stretch', justifyContent: 'center', flex: 1 }}>
@@ -386,7 +400,7 @@ function Slide06Product() {
           <Eyebrow>第四章 · 產品</Eyebrow>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: TYPE_SCALE.titleSm,
+            fontSize: TYPE_SCALE.title,
             fontWeight: 800,
             lineHeight: 1.15,
             letterSpacing: '-0.025em',
@@ -394,7 +408,7 @@ function Slide06Product() {
             margin: 0,
             textWrap: 'balance',
           }}>
-            最小單位：一張<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>
+            最小單位：<br />一張<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>
               故事卡片
               <Squiggle color="var(--color-terracotta)" />
             </span>
@@ -552,7 +566,6 @@ function Slide07WhyUs() {
         <SectionTitle
           eyebrow="第五章 · 為何非得是我們"
           title="我們走過的路"
-          titleSize={TYPE_SCALE.titleSm}
         />
 
         <div style={{ marginTop: 44, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 28, flex: 1, minHeight: 0 }}>
@@ -612,7 +625,6 @@ function Slide08Team() {
         <SectionTitle
           eyebrow="第六章 · 團隊"
           title="我們是誰"
-          titleSize={TYPE_SCALE.title}
         />
 
         {/* Team members — 2×2 grid */}
@@ -660,7 +672,6 @@ function Slide09WhoWeServe() {
           eyebrow="第七章 · 第一戰場"
           title="服務誰：有感，說不出口的城市生活者"
           highlight="有感，說不出口"
-          titleSize={TYPE_SCALE.titleSm}
         />
 
         <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 56, alignItems: 'stretch', flex: 1 }}>
@@ -759,7 +770,6 @@ function Slide10Battlefield() {
         <SectionTitle
           eyebrow="第八章 · 戰場 & 對手"
           title="困難與產品創新"
-          titleSize={TYPE_SCALE.titleSm}
         />
 
         <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 20px 1.15fr', columnGap: 32, alignItems: 'start' }}>
@@ -844,7 +854,7 @@ function Slide11HowToWin() {
     {
       n: '03',
       title: '用故事交朋友，不做創作者粉絲制',
-      textNode: <>沒有追蹤數、沒有「創作者 vs 讀者」的上下階層。在共振，<Highlight color="oklch(34% 0.11 150)">每個人都是連結者，用自己的故事找到同頻的靈魂</Highlight>。雙向連結後才能看到彼此更多──交流像朋友，而非仰望。</>,
+      textNode: <>沒有追蹤數、沒有「創作者 vs 讀者」的上下階層。在共振，<Highlight color="oklch(34% 0.11 150)">每個人都是分享者，用自己的故事找到同頻的靈魂</Highlight>。雙向連結後才能看到彼此更多──交流像朋友，而非仰望。</>,
       color: 'oklch(93% 0.042 140)',
       stroke: 'oklch(38% 0.11 140)',
       seed: 97,
@@ -857,7 +867,6 @@ function Slide11HowToWin() {
           eyebrow="第九章 · 如何贏"
           title="三個產品哲學武器"
           highlight="哲學武器"
-          titleSize={TYPE_SCALE.title}
         />
 
         <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 36, flex: 1 }}>
@@ -918,7 +927,6 @@ function Slide12BusinessModel() {
           eyebrow="第十章 · 營收模式"
           title="思想流通，永遠免費"
           highlight="永遠免費"
-          titleSize={TYPE_SCALE.title}
         />
         <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.body, color: 'var(--color-text-muted)', lineHeight: 1.55, margin: '16px 0 0', whiteSpace: 'nowrap' }}>
           付費功能只提供 AI 寫作工具，不設內容牆──思想的流通，不應由錢包決定。
@@ -1129,7 +1137,6 @@ function Slide14Timeline() {
         <SectionTitle
           eyebrow="第十二章 · 時程規劃"
           title="里程碑時間軸"
-          titleSize={TYPE_SCALE.title}
         />
 
         {/* Timeline SVG */}
@@ -1283,7 +1290,6 @@ function Slide15Prototype() {
           eyebrow="第十三章 · 產品雛形"
           title="我們正在打造的樣子"
           highlight="正在打造"
-          titleSize={TYPE_SCALE.titleSm}
         />
         <div style={{ marginTop: 44, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, flex: 1, minHeight: 0 }}>
           {screens.map((screen, i) => (
@@ -1336,7 +1342,7 @@ function Slide16Closing() {
         <Eyebrow color="oklch(96% 0.015 75 / 0.75)">尾聲 · 我們的信念</Eyebrow>
         <h2 style={{
           fontFamily: 'var(--font-heading)',
-          fontSize: 76,
+          fontSize: 64,
           fontWeight: 800,
           lineHeight: 1.16,
           letterSpacing: '-0.025em',

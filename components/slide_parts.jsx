@@ -5,8 +5,7 @@
 const TYPE_SCALE = {
   eyebrow: 22,
   kicker:  28,
-  title:   84,
-  titleSm: 64,
+  title:   64,
   subtitle: 44,
   body:    34,
   bodySm:  28,
@@ -122,7 +121,7 @@ function BrandMark({ dark = false }) {
 function Squiggle({ color = 'var(--color-terracotta)', width = '100%' }) {
   return (
     <svg viewBox="0 0 200 12" preserveAspectRatio="none" style={{
-      position: 'absolute', bottom: -10, left: 0, width, height: 14, overflow: 'visible',
+      position: 'absolute', bottom: -4, left: 0, width, height: 12, overflow: 'visible',
     }}>
       <path d="M2,8 C30,2 60,12 90,6 C120,0 150,10 198,6"
         stroke={color} strokeWidth="3" fill="none"
@@ -202,7 +201,6 @@ function SectionTitle({ eyebrow, title, subtitle, highlight, align = 'left', col
         letterSpacing: '-0.025em',
         color,
         margin: 0,
-        textWrap: 'balance',
       }}>
         {titleNodes}
       </h2>
