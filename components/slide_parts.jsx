@@ -206,7 +206,7 @@ function SectionTitle({ eyebrow, title, subtitle, highlight, align = 'left', col
       </h2>
       {subtitle && (
         <p style={{
-          fontFamily: 'var(--font-body)',
+          fontFamily: 'var(--font-heading)',
           fontSize: TYPE_SCALE.body,
           lineHeight: 1.55,
           color: color === 'var(--color-cream)' ? 'oklch(96% 0.015 75 / 0.78)' : 'var(--color-text-muted)',

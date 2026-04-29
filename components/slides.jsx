@@ -87,52 +87,54 @@ function Slide02Thesis() {
           </div>
         </>
       }
-    ><div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-        <Eyebrow>One-liner · 30 秒版</Eyebrow>
+    ><div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+        <div>
+          <Eyebrow>One-liner · 30 秒版</Eyebrow>
 
-        <div style={{ position: 'relative', maxWidth: 1500 }}>
-          <span style={{
-            position: 'absolute', top: -80, left: -40,
-            fontFamily: 'var(--font-heading)',
-            fontSize: 240, lineHeight: 1,
-            color: 'var(--color-terracotta)', opacity: 0.22,
-            fontWeight: 800,
-          }}>"</span>
-          <h2 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 64,
-            fontWeight: 800,
-            lineHeight: 1.18,
-            letterSpacing: '-0.025em',
-            color: 'var(--color-text)',
-            margin: 0,
-            textWrap: 'balance',
-            position: 'relative',
-            zIndex: 2,
-          }}>
-            我們做的不是社群，<br />
-            是一個<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>
-              思想的共振場
-              <Squiggle color="var(--color-terracotta)" />
-            </span>
-          </h2>
-          <p style={{
-            fontFamily: 'var(--font-heading)',
-            fontStyle: 'italic',
-            fontSize: 34,
-            fontWeight: 400,
-            lineHeight: 1.5,
-            letterSpacing: '-0.01em',
-            color: 'var(--color-text-muted)',
-            margin: '28px 0 0',
-            position: 'relative',
-            zIndex: 2,
-          }}>
-            寫下你心中的微小轉折，世界另一端有人和你想的一樣。
-          </p>
+          <div style={{ position: 'relative', maxWidth: 1500 }}>
+            <span style={{
+              position: 'absolute', top: -80, left: -40,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 240, lineHeight: 1,
+              color: 'var(--color-terracotta)', opacity: 0.22,
+              fontWeight: 800,
+            }}>"</span>
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 64,
+              fontWeight: 800,
+              lineHeight: 1.18,
+              letterSpacing: '-0.025em',
+              color: 'var(--color-text)',
+              margin: 0,
+              textWrap: 'balance',
+              position: 'relative',
+              zIndex: 2,
+            }}>
+              我們做的不是社群，<br />
+              是一個<span style={{ position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>
+                思想的共振場
+                <Squiggle color="var(--color-terracotta)" />
+              </span>
+            </h2>
+            <p style={{
+              fontFamily: 'var(--font-heading)',
+              fontStyle: 'italic',
+              fontSize: 34,
+              fontWeight: 400,
+              lineHeight: 1.5,
+              letterSpacing: '-0.01em',
+              color: 'var(--color-text-muted)',
+              margin: '28px 0 0',
+              position: 'relative',
+              zIndex: 2,
+            }}>
+              寫下你心中的微小轉折，世界另一端有人和你想的一樣。
+            </p>
+          </div>
         </div>
 
-        <div style={{ marginTop: 56, maxWidth: 1500, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
+        <div style={{ maxWidth: 1500, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
           {[
             {
               anchor: '歸屬',
@@ -394,7 +396,7 @@ function Slide05Versus() {
 function Slide06Product() {
   return (
     <SlideFrame background="var(--color-cream)" grain={0.05}
-      chrome={<><BrandMark /><SlideNumber n={6} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', height: '100%', gap: 80, alignItems: 'center' }}>
+      chrome={<><BrandMark /><SlideNumber n={6} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', height: '100%', gap: 80, alignItems: 'flex-start' }}>
         {/* Left: explanation */}
         <div style={{ flex: 1.1, display: 'flex', flexDirection: 'column' }}>
           <Eyebrow>第四章 · 產品</Eyebrow>
@@ -414,26 +416,26 @@ function Slide06Product() {
             </span>
           </h2>
 
-          <div style={{ marginTop: 48, fontFamily: 'var(--font-heading)', fontSize: 38, fontWeight: 700, color: 'var(--color-text)', letterSpacing: '-0.01em', lineHeight: 1.3 }}>
+          <div style={{ marginTop: 80, fontFamily: 'var(--font-heading)', fontSize: 38, fontWeight: 700, color: 'var(--color-text)', letterSpacing: '-0.01em', lineHeight: 1.3 }}>
             一張卡片 = 一個轉折瞬間 + 一個核心洞見
           </div>
 
-          <ul style={{ listStyle: 'none', padding: 0, margin: '48px 0 0', display: 'flex', flexDirection: 'column', gap: 22 }}>
+          <div style={{ margin: '48px 0 0', display: 'flex', flexDirection: 'column' }}>
             {[
               { k: '私下記錄', v: '先用卡片捕捉每個靈光，不必一次寫出完整故事' },
               { k: 'AI 整理', v: '幫你找回過去的洞見，讓碎片成為故事的材料' },
               { k: '你來述說', v: '故事永遠由你親自完成──真實感與人的溫度，無法外包' },
             ].map(item => (
-              <li key={item.k} style={{ display: 'flex', alignItems: 'baseline', gap: 24 }}>
-                <span style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 32, fontWeight: 700, color: 'var(--color-terracotta)', minWidth: 140 }}>{item.k}</span>
-                <span style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.45 }}>{item.v}</span>
-              </li>
+              <div key={item.k} style={{ borderTop: '1px solid oklch(36% 0.06 60 / 0.15)', paddingTop: 24, paddingBottom: 24 }}>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 36, fontWeight: 700, color: 'var(--color-terracotta)', lineHeight: 1.1, marginBottom: 8 }}>{item.k}</div>
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>{item.v}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Right: stacked cards */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 100 }}>
           <div style={{ position: 'relative', width: 440, height: 680 }}>
             {/* Left card — tilted left, behind */}
             <div style={{
@@ -1021,7 +1023,7 @@ function Slide13Budget() {
 
         <div style={{ marginTop: 28, flex: 1, display: 'flex', gap: 40, alignItems: 'stretch' }}>
           {/* Left: bar chart */}
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-around', paddingRight: 65 }}>
             {items.map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <div style={{ width: 220, textAlign: 'right', flexShrink: 0 }}>
