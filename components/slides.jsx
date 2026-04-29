@@ -726,7 +726,7 @@ function Slide10Battlefield() {
               台灣華文圈 → 全球
             </h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.55, margin: 0, textWrap: 'pretty' }}>
-              母語直覺最強的市場先贏。MVP 上線即內建 AI 翻譯，早期使用者的卡片能被英 / 日 / 韓看見。
+              母語直覺最強的市場先贏。MLP (Minimum Lovable Product) 上線即內建 AI 翻譯，早期使用者的卡片能被英 / 日 / 韓看見。
             </p>
             <HandDrawnCard seed={241} fill="var(--color-yellow)" stroke="oklch(44% 0.12 88)" padding={28}>
               <p style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 30, color: 'var(--color-text)', margin: 0, lineHeight: 1.4 }}>
@@ -952,7 +952,7 @@ function Slide13Budget() {
         <SectionTitle
           eyebrow="第十一章 · 資源規劃"
           title="經費預估"
-          subtitle="以 NT$100,000 打造 MVP 並驗證產品市場"
+          subtitle="以 NT$100,000 打造 MLP 並驗證產品市場"
         />
 
         <div style={{ marginTop: 28, flex: 1, display: 'flex', gap: 40, alignItems: 'stretch' }}>
@@ -1033,7 +1033,7 @@ function Slide14Timeline() {
       done: true,
     },
     {
-      title: 'MVP 開發',
+      title: 'MLP 開發',
       items: ['核心功能實作', '故事卡片系統', 'AI 推薦引擎'],
       color: 'var(--color-yellow)',
       stroke: 'oklch(44% 0.12 88)',
