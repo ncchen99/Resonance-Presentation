@@ -210,7 +210,7 @@ function SectionTitle({ eyebrow, title, subtitle, highlight, align = 'left', col
           fontSize: TYPE_SCALE.body,
           lineHeight: 1.55,
           color: color === 'var(--color-cream)' ? 'oklch(96% 0.015 75 / 0.78)' : 'var(--color-text-muted)',
-          margin: `${SPACING.titleGap}px 0 0`,
+          margin: `${SPACING.titleGap * 0.5}px 0 0`,
           maxWidth: 1100,
           marginInline: align === 'center' ? 'auto' : 0,
           textWrap: 'pretty',
