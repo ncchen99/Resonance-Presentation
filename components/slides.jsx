@@ -136,12 +136,12 @@ function Slide02Thesis() {
           {[
             {
               anchor: '歸屬',
-              text: '有人說出了你心裡一直有、卻說不清楚的話——那一刻你知道，這個世界上有人和你同頻。你並不孤單。',
+              text: '有人說出了你心裡一直有、卻說不清楚的話──那一刻你知道，這個世界上有人和你同頻。你並不孤單。',
               color: 'var(--color-terracotta)',
             },
             {
               anchor: '渴望',
-              text: '當你的故事讓另一個人共振，你的想法終於被真正看見——不是為了追蹤數，而是為了真實的連結。',
+              text: '當你的故事讓另一個人共振，你的想法終於被真正看見──不是為了追蹤數，而是為了真實的連結。',
               color: 'oklch(42% 0.09 290)',
             },
           ].map(item => (
@@ -179,7 +179,7 @@ function Slide03Beliefs() {
     {
       tag: '體悟',
       label: '故事，始於轉折',
-      textNode: <>真正的故事需要「英雄旅程」——有起伏、有轉折、使主角產生改變。吸引我們的不是主角達成了什麼，而是<Highlight color="oklch(36% 0.13 60)">那個令他改變的體悟</Highlight>；沒有體悟，只是奮鬥史。</>,
+      textNode: <>真正的故事需要「英雄旅程」──有起伏、有轉折、使主角產生改變。吸引我們的不是主角達成了什麼，而是<Highlight color="oklch(36% 0.13 60)">那個令他改變的體悟</Highlight>；沒有體悟，只是奮鬥史。</>,
       color: 'var(--color-yellow)',
       seed: 29,
     },
@@ -291,7 +291,7 @@ function Slide04WhyNow() {
                 共振放大的，是體悟
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, lineHeight: 1.55, margin: 0, color: 'oklch(96% 0.015 75 / 0.92)', textWrap: 'pretty' }}>
-                第一次，我們能透過 AI 對每篇故事取樣、建構詞向量——根據你的現況、你分享的文章、你記下的想法卡片，推薦真正能引發共鳴的體悟。
+                第一次，我們能透過 AI 對每篇故事取樣、建構詞向量──根據你的現況、你分享的文章、你記下的想法卡片，推薦真正能引發共鳴的體悟。
               </p>
             </div>
           </HandDrawnCard>
@@ -408,7 +408,7 @@ function Slide06Product() {
             {[
               { k: '私下記錄', v: '先用卡片捕捉每個靈光，不必一次寫出完整故事' },
               { k: 'AI 整理', v: '幫你找回過去的洞見，讓碎片成為故事的材料' },
-              { k: '你來述說', v: '故事永遠由你親自完成——真實感與人的溫度，無法外包' },
+              { k: '你來述說', v: '故事永遠由你親自完成──真實感與人的溫度，無法外包' },
             ].map(item => (
               <li key={item.k} style={{ display: 'flex', alignItems: 'baseline', gap: 24 }}>
                 <span style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 32, fontWeight: 700, color: 'var(--color-terracotta)', minWidth: 140 }}>{item.k}</span>
@@ -772,7 +772,7 @@ function Slide11HowToWin() {
     {
       n: '01',
       title: '有發心，以「體悟」為信號',
-      textNode: <>我們不讓演算法決定誰被看見。共振以「體悟」為核心——AI 對每篇故事進行取樣與詞向量建構，根據你的現況、你分享的文章、你記下的想法卡片，為你推薦最合適的故事。<Highlight color="oklch(35% 0.17 45)">有體悟、有轉折的故事，讓人感受到生命的熱情</Highlight>，而不是焦慮與比較之心。</>,
+      textNode: <>我們不讓演算法決定誰被看見。共振以「體悟」為核心──AI 對每篇故事進行取樣與詞向量建構，根據你的現況、你分享的文章、你記下的想法卡片，為你推薦最合適的故事。<Highlight color="oklch(35% 0.17 45)">有體悟、有轉折的故事，讓人感受到生命的熱情</Highlight>，而不是焦慮與比較之心。</>,
       color: 'var(--color-terracotta-light)',
       stroke: 'oklch(38% 0.11 55)',
       seed: 41,
@@ -788,7 +788,7 @@ function Slide11HowToWin() {
     {
       n: '03',
       title: '用故事交朋友，不做創作者粉絲制',
-      textNode: <>沒有追蹤數、沒有「創作者 vs 讀者」的上下階層。在共振，<Highlight color="oklch(34% 0.11 150)">每個人都是連結者，用自己的故事找到同頻的靈魂</Highlight>。雙向連結後才能看到彼此更多——交流像朋友，而非仰望。</>,
+      textNode: <>沒有追蹤數、沒有「創作者 vs 讀者」的上下階層。在共振，<Highlight color="oklch(34% 0.11 150)">每個人都是連結者，用自己的故事找到同頻的靈魂</Highlight>。雙向連結後才能看到彼此更多──交流像朋友，而非仰望。</>,
       color: 'oklch(93% 0.042 140)',
       stroke: 'oklch(38% 0.11 140)',
       seed: 97,
@@ -865,7 +865,7 @@ function Slide12BusinessModel() {
           titleSize={TYPE_SCALE.title}
         />
         <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.body, color: 'var(--color-text-muted)', lineHeight: 1.55, margin: '16px 0 0', whiteSpace: 'nowrap' }}>
-          付費功能只提供 AI 寫作工具，不設內容牆——思想的流通，不應由錢包決定。
+          付費功能只提供 AI 寫作工具，不設內容牆──思想的流通，不應由錢包決定。
         </p>
 
         <div style={{ marginTop: 44, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 44, flex: 1 }}>
@@ -933,9 +933,9 @@ function Slide12BusinessModel() {
 function Slide13Budget() {
   const items = [
     { label: '產品開發', en: 'Development', amount: 30000, pct: 30, color: 'var(--color-terracotta)', detail: 'AI 推薦引擎、APP 上架費用' },
+    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 25000, pct: 25, color: 'var(--color-sky)', detail: '雲端主機、資料庫服務、API 費用' },
     { label: '行銷推廣', en: 'Marketing', amount: 20000, pct: 20, color: 'var(--color-sage)', detail: '社群行銷、KOL 合作、早期用戶招募' },
     { label: 'UI/UX 設計', en: 'Design', amount: 15000, pct: 15, color: 'var(--color-lavender)', detail: '介面設計、品牌識別系統、插圖素材' },
-    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 25000, pct: 25, color: 'var(--color-sky)', detail: '雲端主機、資料庫服務、API 費用' },
     { label: '雜支備用', en: 'Contingency', amount: 10000, pct: 10, color: 'var(--color-yellow)', detail: '法律文件、行政費用、緊急備用金' },
   ];
 
