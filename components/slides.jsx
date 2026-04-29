@@ -705,6 +705,50 @@ function Slide09WhoWeServe() {
   );
 }
 
+// ── HandDrawnVLine ────────────────────────────────────────────────────────────
+// SVG is absolutely positioned so it never contributes to grid row sizing.
+// useElementSize measures the wrapper (which stretches to grid row height),
+// then passes that height explicitly to the SVG — no feedback loop.
+function HandDrawnVLine({ seed = 77, amp = 3.5, steps = 8, stroke = 'oklch(60% 0.07 70 / 0.5)', strokeWidth = 1.5 }) {
+  const H = 600;
+  const wrapRef = React.useRef(null);
+  const { h: wrapH } = useElementSize(wrapRef, 0, 0);
+  const path = React.useMemo(() => {
+    const rnd = makePrng(seed);
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps;
+      const y = t * H;
+      const x = (i === 0 || i === steps) ? 0 : (rnd() - 0.5) * 2 * amp;
+      pts.push([x, y]);
+    }
+    const f = n => +n.toFixed(2);
+    let d = `M ${f(pts[0][0])},${f(pts[0][1])}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1];
+      const [x1, y1] = pts[i];
+      const ctrl = (y1 - y0) / 3;
+      d += ` C ${f(x0)},${f(y0 + ctrl)} ${f(x1)},${f(y1 - ctrl)} ${f(x1)},${f(y1)}`;
+    }
+    return d;
+  }, [seed, amp, steps]);
+  const vbW = (amp + 3) * 2;
+  const svgH = Math.max(0, wrapH - 12);
+  return (
+    <div ref={wrapRef} style={{ position: 'relative', alignSelf: 'stretch', minHeight: 0 }}>
+      {svgH > 0 && (
+        <svg
+          viewBox={`${-(vbW / 2)} 0 ${vbW} ${H}`}
+          preserveAspectRatio="none"
+          style={{ position: 'absolute', top: 6, left: '50%', transform: 'translateX(-50%)', width: vbW, height: svgH }}
+        >
+          <path d={path} stroke={stroke} strokeWidth={strokeWidth} fill="none" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+        </svg>
+      )}
+    </div>
+  );
+}
+
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDE 10 — Where to fight, who to fight
 // ═══════════════════════════════════════════════════════════════════════════
@@ -718,7 +762,7 @@ function Slide10Battlefield() {
           titleSize={TYPE_SCALE.titleSm}
         />
 
-        <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 1px 1fr', columnGap: 40, flex: 1 }}>
+        <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 20px 1.15fr', columnGap: 32, alignItems: 'start' }}>
           {/* 起始點 — where we begin */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
             <Eyebrow color="var(--color-text-muted)">戰場 · 選擇的場域</Eyebrow>
@@ -745,11 +789,11 @@ function Slide10Battlefield() {
             </p>
           </div>
 
-          {/* vertical divider */}
-          <div style={{ background: 'oklch(65% 0.06 70 / 0.35)', borderRadius: 999, margin: '8px 0' }} />
+          {/* hand-drawn vertical divider */}
+          <HandDrawnVLine seed={42} amp={4} steps={8} />
 
           {/* 對手 — who we're up against */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20, paddingLeft: 64 }}>
             <Eyebrow color="var(--color-text-muted)">對手 · 內部的痛點</Eyebrow>
 
             <HandDrawnCard seed={188} fill="oklch(96% 0.018 70)" stroke="oklch(60% 0.04 70 / 0.7)" padding={24} strokeWidth={1.5}>
