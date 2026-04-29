@@ -1,6 +1,6 @@
 // ── Resonance Pitch Deck · Slides 01–11 ──────────────────────────────────────
 
-const TOTAL_SLIDES = 11;
+const TOTAL_SLIDES = 14;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDE 01 — Cover
@@ -160,7 +160,7 @@ function Slide02Thesis() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Highlight({ color, children }) {
   return (
-    <span style={{ position: 'relative', display: 'inline', color }}>
+    <span style={{ position: 'relative', display: 'inline-block', color, whiteSpace: 'nowrap' }}>
       {children}
       <Squiggle color={color} />
     </span>
@@ -260,7 +260,7 @@ function Slide04WhyNow() {
 
         <div style={{ marginTop: 72, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, flex: 1 }}>
           {/* Past decade */}
-          <div>
+          <div style={{ paddingTop: 52 }}>
             <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 24, fontWeight: 600 }}>
               過去十年
             </div>
@@ -288,13 +288,10 @@ function Slide04WhyNow() {
                 此刻 · AI 時代
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 48, fontWeight: 800, margin: '0 0 28px', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
-                工具可以更中性，<br />也可以更邪惡
+                共振放大的，是體悟
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, lineHeight: 1.55, margin: 0, color: 'oklch(96% 0.015 75 / 0.92)', textWrap: 'pretty' }}>
-                但也第一次，我們能主動放大正向的聲音、連結同頻的思想。
-              </p>
-              <p style={{ fontFamily: 'var(--font-heading)', fontStyle: 'italic', fontSize: 32, lineHeight: 1.4, margin: 'auto 0 0', color: 'oklch(96% 0.015 75 / 0.96)', paddingTop: 24, borderTop: '1px dashed oklch(96% 0.015 75 / 0.35)' }}>
-                這就是我們判斷的時機。
+                第一次，我們能透過 AI 對每篇故事取樣、建構詞向量——根據你的現況、你分享的文章、你記下的想法卡片，推薦真正能引發共鳴的體悟。
               </p>
             </div>
           </HandDrawnCard>
@@ -456,19 +453,15 @@ function Slide06Product() {
               <HandDrawnCard seed={131} fill="oklch(93% 0.042 140)" stroke="oklch(38% 0.11 140)" padding={36}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 22, minHeight: 540 }}>
                   <div style={{ position: 'relative', width: '100%', paddingBottom: '62%', borderRadius: '14px 18px 12px 16px', overflow: 'hidden', flexShrink: 0 }}>
-                    <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                      <rect width="320" height="200" fill="oklch(82% 0.08 140)" />
-                      {Array.from({ length: 22 }, (_, i) => (
-                        <line key={i} x1={i * 22 - 160} y1="0" x2={i * 22 + 160} y2="200" stroke="oklch(72% 0.10 140)" strokeWidth="1.5" strokeOpacity="0.35" />
-                      ))}
-                      <text x="50%" y="52%" textAnchor="middle" dominantBaseline="middle" fontFamily="monospace" fontSize="10.5" fill="oklch(28% 0.04 60)" fillOpacity="0.5">
-                        thought card · illustration
-                      </text>
-                    </svg>
+                    <img 
+                      src="assets/19 歲時破產，反而是覺察幸福的開端.jpg" 
+                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
+                      alt="19 歲時破產，反而是覺察幸福的開端" 
+                    />
                   </div>
                   <TagPill color="oklch(90% 0.075 88)">Thought</TagPill>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 30, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.3, margin: 0 }}>
-                    19 歲時破產，反而是我覺察幸福的開端
+                    19 歲時破產，反而是覺察幸福的開端
                   </h3>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: 18, lineHeight: 1.65, color: 'var(--color-text-muted)', margin: 0 }}>
                     看著螢幕上跳動的數字，我愚笨地把槓桿交易當作戳戳樂。整個人在恐懼與貪婪的極限當中，瘋狂擺盪。隨著一則又一則的爆倉通知出現，我明白，自己嚴然沒有了回頭路...
@@ -596,9 +589,95 @@ function Slide07WhyUs() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 08 — First battlefield: who we serve
+// SLIDE 08 — Team intro
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide08WhoWeServe() {
+function Slide08Team() {
+  const members = [
+    { initials: '？', name: '姓名', dept: '系所', role: '負責業務項目', color: 'var(--color-terracotta-light)', seed: 11 },
+    { initials: '？', name: '姓名', dept: '系所', role: '負責業務項目', color: 'var(--color-sage)',             seed: 37 },
+    { initials: '？', name: '姓名', dept: '系所', role: '負責業務項目', color: 'var(--color-lavender)',         seed: 61 },
+  ];
+  const advisors = [
+    { initials: '？', name: '姓名', affiliation: '任職單位／職稱經歷', color: 'var(--color-yellow)', seed: 91 },
+    { initials: '？', name: '姓名', affiliation: '任職單位／職稱經歷', color: 'var(--color-sky)',    seed: 113 },
+  ];
+
+  return (
+    <SlideFrame background="var(--color-cream)" grain={0.05}
+      chrome={<><BrandMark /><SlideNumber n={8} total={TOTAL_SLIDES} /></>}
+      decor={
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-6%', opacity: 0.18, pointerEvents: 'none' }}>
+          <OrganiBlob variant={1} fill="var(--color-terracotta-light)" size={560} />
+        </div>
+      }
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <SectionTitle
+          eyebrow="第六章 · 團隊"
+          title="我們是誰"
+          titleSize={TYPE_SCALE.title}
+        />
+
+        {/* Team members */}
+        <div style={{ marginTop: 52, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+          {members.map((m, i) => (
+            <HandDrawnCard key={i} seed={m.seed} fill={m.color} stroke="oklch(36% 0.06 60 / 0.55)" padding={36}>
+              <div style={{ display: 'flex', flexDirection: 'row', gap: 28, alignItems: 'flex-start', height: '100%' }}>
+                {/* Left: avatar */}
+                <div style={{ flexShrink: 0 }}>
+                  <HandDrawnAvatar initials={m.initials} size={100} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} />
+                </div>
+                {/* Right: 2-column grid (name+dept | role) */}
+                <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 24px', alignContent: 'start' }}>
+                  <div style={{ gridColumn: '1 / -1', fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                    {m.name}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text-muted)', lineHeight: 1.4 }}>
+                    {m.dept}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text)', lineHeight: 1.4 }}>
+                    {m.role}
+                  </div>
+                </div>
+              </div>
+            </HandDrawnCard>
+          ))}
+        </div>
+
+        {/* Advisors */}
+        <div style={{ marginTop: 36 }}>
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, marginBottom: 20 }}>
+            顧問群
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+            {advisors.map((a, i) => (
+              <HandDrawnCard key={i} seed={a.seed} fill={a.color} stroke="oklch(36% 0.06 60 / 0.45)" padding={36}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 28, minHeight: 140 }}>
+                  <div style={{ flexShrink: 0 }}>
+                    <HandDrawnAvatar initials={a.initials} size={80} color="oklch(97% 0.01 75 / 0.6)" seed={a.seed + 5} />
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 700, color: 'var(--color-text)', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+                      {a.name}
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
+                      {a.affiliation}
+                    </div>
+                  </div>
+                </div>
+              </HandDrawnCard>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SLIDE 09 — First battlefield: who we serve
+// ═══════════════════════════════════════════════════════════════════════════
+function Slide09WhoWeServe() {
   const signals = [
     'Medium / Substack 訂閱者',
     '會在 Threads 寫長文的人',
@@ -607,9 +686,9 @@ function Slide08WhoWeServe() {
   ];
   return (
     <SlideFrame background="var(--color-cream-dark)" grain={0.05}
-      chrome={<><BrandMark /><SlideNumber n={8} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      chrome={<><BrandMark /><SlideNumber n={9} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
-          eyebrow="第六章 · 第一戰場"
+          eyebrow="第七章 · 第一戰場"
           title="服務誰：華文圈的思想工作者"
           highlight="思想工作者"
           titleSize={TYPE_SCALE.titleSm}
@@ -658,14 +737,14 @@ function Slide08WhoWeServe() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 09 — Where to fight, who to fight
+// SLIDE 10 — Where to fight, who to fight
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide09Battlefield() {
+function Slide10Battlefield() {
   return (
     <SlideFrame background="var(--color-cream)" grain={0.05}
-      chrome={<><BrandMark /><SlideNumber n={9} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      chrome={<><BrandMark /><SlideNumber n={10} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
-          eyebrow="第七章 · 戰場 & 對手"
+          eyebrow="第八章 · 戰場 & 對手"
           title="真正的對手，不是 Medium，而是 doomscrolling 本身"
           titleSize={48}
         />
@@ -717,30 +796,30 @@ function Slide09Battlefield() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 10 — How to win
+// SLIDE 11 — How to win
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide10HowToWin() {
+function Slide11HowToWin() {
   const weapons = [
     {
       n: '01',
-      title: '私人記錄 → AI 整理 → 你來述說',
-      body: '用卡片累積靈感，AI 幫你找回材料，故事由你親筆完成。真實感無法外包。',
+      title: '有發心，以「體悟」為信號',
+      textNode: <>我們不讓演算法決定誰被看見。共振以「體悟」為核心——AI 對每篇故事進行取樣與詞向量建構，根據你的現況、你分享的文章、你記下的想法卡片，為你推薦最合適的故事。<Highlight color="oklch(35% 0.17 45)">有體悟、有轉折的故事，讓人感受到生命的熱情</Highlight>，而不是焦慮與比較之心。</>,
       color: 'var(--color-terracotta-light)',
       stroke: 'oklch(38% 0.11 55)',
       seed: 41,
     },
     {
       n: '02',
-      title: '同頻連結，取代追蹤',
-      body: '沒有粉絲數、沒有 follower / following，就沒有階級感。',
+      title: '讀寫完全平等，付費買工具不買特權',
+      textNode: <>沒有 Premium 文章牆，沒有付費才能讀到的思想。共振的付費功能只提供 AI 寫作工具，幫使用者整理與連結卡片、建構個人知識體系。<Highlight color="oklch(42% 0.09 290)">思想的流通，不應由錢包決定</Highlight>。</>,
       color: 'oklch(94% 0.032 290)',
       stroke: 'oklch(42% 0.09 290)',
       seed: 67,
     },
     {
       n: '03',
-      title: 'Connection metric',
-      body: '回饋不是讚數，而是「有 N 個人說你的故事和他們共振了」。',
+      title: '用故事交朋友，不做創作者粉絲制',
+      textNode: <>沒有追蹤數、沒有「創作者 vs 讀者」的上下階層。在共振，<Highlight color="oklch(34% 0.11 150)">每個人都是連結者，用自己的故事找到同頻的靈魂</Highlight>。雙向連結後才能看到彼此更多——交流像朋友，而非仰望。</>,
       color: 'oklch(93% 0.042 140)',
       stroke: 'oklch(38% 0.11 140)',
       seed: 97,
@@ -748,9 +827,9 @@ function Slide10HowToWin() {
   ];
   return (
     <SlideFrame background="var(--color-cream-dark)" grain={0.05}
-      chrome={<><BrandMark /><SlideNumber n={10} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      chrome={<><BrandMark /><SlideNumber n={11} total={TOTAL_SLIDES} /></>}><div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
-          eyebrow="第八章 · 如何贏"
+          eyebrow="第九章 · 如何贏"
           title="三個產品哲學武器"
           highlight="哲學武器"
           titleSize={TYPE_SCALE.title}
@@ -767,7 +846,7 @@ function Slide10HowToWin() {
                   {w.title}
                 </h3>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: 26, lineHeight: 1.55, color: 'var(--color-text)', margin: 'auto 0 0', textWrap: 'pretty' }}>
-                  {w.body}
+                  {w.textNode}
                 </p>
               </div>
             </HandDrawnCard>
@@ -778,14 +857,277 @@ function Slide10HowToWin() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 11 — Closing: our belief
+// SLIDE 12 — Budget
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide11Closing() {
+function Slide12Budget() {
+  const items = [
+    { label: '產品開發', en: 'Development',    amount: 40000, pct: 40, color: 'var(--color-terracotta)',       detail: 'App 前後端開發、AI 推薦引擎整合' },
+    { label: '行銷推廣', en: 'Marketing',       amount: 20000, pct: 20, color: 'var(--color-sage)',             detail: '社群行銷、KOL 合作、早期用戶招募' },
+    { label: 'UI/UX 設計', en: 'Design',        amount: 15000, pct: 15, color: 'var(--color-lavender)',         detail: '介面設計、品牌識別系統、插圖素材' },
+    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 15000, pct: 15, color: 'var(--color-sky)',         detail: '雲端主機、資料庫服務、API 費用' },
+    { label: '雜支備用', en: 'Contingency',     amount: 10000, pct: 10, color: 'var(--color-yellow)',           detail: '法律文件、行政費用、緊急備用金' },
+  ];
+
+  return (
+    <SlideFrame background="var(--color-cream)" grain={0.05}
+      chrome={<><BrandMark /><SlideNumber n={12} total={TOTAL_SLIDES} /></>}
+      decor={
+        <div style={{ position: 'absolute', top: '-10%', right: '-6%', opacity: 0.18, pointerEvents: 'none' }}>
+          <OrganiBlob variant={3} fill="var(--color-terracotta-light)" size={600} />
+        </div>
+      }
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <SectionTitle
+          eyebrow="第十章 · 資源規劃"
+          title="經費預估"
+          subtitle="以 NT$100,000 打造 MVP 並驗證產品市場"
+        />
+
+        <div style={{ marginTop: 44, flex: 1, display: 'flex', gap: 60, alignItems: 'stretch' }}>
+          {/* Left: bar chart */}
+          <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
+            {items.map((item, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+                <div style={{ width: 220, textAlign: 'right', flexShrink: 0 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 30, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.1 }}>
+                    {item.label}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.eyebrow, color: 'var(--color-text-muted)', letterSpacing: '0.08em', marginTop: 2 }}>
+                    {item.en}
+                  </div>
+                </div>
+                <div style={{ flex: 1, height: 58, background: 'oklch(91% 0.015 75)', borderRadius: 12, overflow: 'hidden', position: 'relative' }}>
+                  <div style={{
+                    width: `${item.pct}%`, height: '100%',
+                    background: item.color,
+                    display: 'flex', alignItems: 'center', paddingLeft: 20,
+                    borderRadius: 12,
+                    transition: 'width 0.6s ease',
+                  }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: 22, fontWeight: 700, color: 'var(--color-text)', whiteSpace: 'nowrap' }}>
+                      {item.pct}%
+                    </span>
+                  </div>
+                </div>
+                <div style={{ width: 160, flexShrink: 0, fontFamily: 'var(--font-heading)', fontSize: 28, fontWeight: 800, color: 'var(--color-text)', textAlign: 'right' }}>
+                  NT${item.amount.toLocaleString()}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right: total + details */}
+          <div style={{ width: 360, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <HandDrawnCard seed={311} fill="var(--color-terracotta)" stroke="oklch(30% 0.14 45)" padding={40}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4, color: 'var(--color-cream)' }}>
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.8 }}>
+                  Total Budget
+                </div>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 44, fontWeight: 800, lineHeight: 1, letterSpacing: '-0.02em', marginTop: 8 }}>
+                  NT$
+                </div>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 68, fontWeight: 800, lineHeight: 0.95, letterSpacing: '-0.03em' }}>
+                  100,000
+                </div>
+              </div>
+            </HandDrawnCard>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 18, flex: 1, justifyContent: 'center' }}>
+              {items.map((item, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
+                  <div style={{
+                    width: 14, height: 14, borderRadius: '50%', background: item.color,
+                    flexShrink: 0, marginTop: 5, border: '2px solid oklch(36% 0.06 60 / 0.25)',
+                  }} />
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text)', lineHeight: 1.4 }}>
+                    {item.detail}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SLIDE 13 — Timeline
+// ═══════════════════════════════════════════════════════════════════════════
+function Slide13Timeline() {
+  const months = ['Apr', 'May', 'Jun', 'Jul', 'Aug'];
+  const phases = [
+    {
+      title: '規格確認',
+      items: ['需求分析與定義', 'UI/UX 原型設計', '技術架構規劃'],
+      color: 'var(--color-terracotta-light)',
+      stroke: 'oklch(38% 0.11 55)',
+      done: true,
+    },
+    {
+      title: 'MVP 開發',
+      items: ['核心功能實作', '故事卡片系統', 'AI 推薦引擎'],
+      color: 'var(--color-yellow)',
+      stroke: 'oklch(44% 0.12 88)',
+      current: true,
+    },
+    {
+      title: '內部測試',
+      items: ['Alpha 測試', '用戶反饋收集', 'Bug 修復優化'],
+      color: 'var(--color-sage)',
+      stroke: 'oklch(40% 0.10 145)',
+    },
+    {
+      title: 'Beta 公測',
+      items: ['首批用戶招募', '社群行銷啟動', '產品迭代優化'],
+      color: 'var(--color-lavender)',
+      stroke: 'oklch(42% 0.10 280)',
+    },
+    {
+      title: '正式上線',
+      items: ['全平台正式發布', '行銷活動啟動', '規模化推廣'],
+      color: 'var(--color-sky)',
+      stroke: 'oklch(46% 0.09 220)',
+    },
+  ];
+
+  const svgW = 1580;
+  const svgH = 130;
+  const nodeY = 54;
+  const nodeR = 15;
+  const positions = months.map((_, i) => 60 + (i / (months.length - 1)) * (svgW - 120));
+  const currentIdx = phases.findIndex(p => p.current);
+
+  return (
+    <SlideFrame background="var(--color-cream-dark)" grain={0.05}
+      chrome={<><BrandMark /><SlideNumber n={13} total={TOTAL_SLIDES} /></>}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <SectionTitle
+          eyebrow="第十一章 · 時程規劃"
+          title="里程碑時間軸"
+          titleSize={TYPE_SCALE.title}
+        />
+
+        {/* Timeline SVG */}
+        <div style={{ marginTop: 36, width: '100%' }}>
+          <svg viewBox={`0 0 ${svgW} ${svgH}`} style={{ width: '100%', height: 'auto', overflow: 'visible' }}>
+            {/* Background track */}
+            <line
+              x1={positions[0]} y1={nodeY}
+              x2={positions[positions.length - 1]} y2={nodeY}
+              stroke="oklch(36% 0.06 60 / 0.18)" strokeWidth="4" strokeLinecap="round"
+            />
+            {/* Progress track (up to current) */}
+            <line
+              x1={positions[0]} y1={nodeY}
+              x2={positions[currentIdx]} y2={nodeY}
+              stroke="var(--color-terracotta)" strokeWidth="4" strokeLinecap="round"
+            />
+
+            {positions.map((x, i) => {
+              const phase = phases[i];
+              const isDone = phase.done;
+              const isCurrent = phase.current;
+              const isFuture = !isDone && !isCurrent;
+
+              return (
+                <g key={i}>
+                  {/* Outer pulse ring for current */}
+                  {isCurrent && (
+                    <circle cx={x} cy={nodeY} r={nodeR + 10} fill="none"
+                      stroke="var(--color-terracotta)" strokeWidth="2" opacity="0.4" />
+                  )}
+                  {/* Node */}
+                  <circle cx={x} cy={nodeY} r={nodeR}
+                    fill={isFuture ? 'oklch(91% 0.015 75)' : 'var(--color-terracotta)'}
+                    stroke={isFuture ? 'oklch(52% 0.04 70 / 0.4)' : 'var(--color-terracotta)'}
+                    strokeWidth="2.5"
+                  />
+                  {/* Checkmark for done */}
+                  {isDone && (
+                    <path
+                      d={`M ${x - 8} ${nodeY + 1} L ${x - 2} ${nodeY + 7} L ${x + 8} ${nodeY - 7}`}
+                      stroke="var(--color-cream)" strokeWidth="2.5" fill="none"
+                      strokeLinecap="round" strokeLinejoin="round"
+                    />
+                  )}
+                  {/* Inner dot for current */}
+                  {isCurrent && (
+                    <circle cx={x} cy={nodeY} r={5} fill="var(--color-cream)" />
+                  )}
+                  {/* "目前進度" label above */}
+                  {isCurrent && (
+                    <>
+                      <line x1={x} y1={nodeY - nodeR - 8} x2={x} y2={nodeY - nodeR - 28}
+                        stroke="var(--color-terracotta)" strokeWidth="1.5" strokeDasharray="4 3" />
+                      <text x={x} y={nodeY - nodeR - 34} textAnchor="middle"
+                        fontFamily="var(--font-body)" fontSize="20" fontWeight="600"
+                        fill="var(--color-terracotta)">
+                        ▲ 目前進度
+                      </text>
+                    </>
+                  )}
+                  {/* Month label */}
+                  <text x={x} y={nodeY + nodeR + 28} textAnchor="middle"
+                    fontFamily="var(--font-heading)" fontSize="30" fontWeight={isCurrent ? '800' : '600'}
+                    fill={isCurrent ? 'oklch(38% 0.14 45)' : 'oklch(36% 0.06 60)'}>
+                    {months[i]}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+
+        {/* Phase cards */}
+        <div style={{ marginTop: 24, display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 22, flex: 1, minHeight: 0 }}>
+          {phases.map((phase, i) => (
+            <HandDrawnCard key={i} seed={301 + i * 13} fill={phase.color} stroke={phase.stroke} padding={30}>
+              <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: 14 }}>
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.eyebrow, fontWeight: 700, color: phase.stroke, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  Phase {i + 1}
+                </div>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text)', lineHeight: 1.2 }}>
+                  {phase.title}
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
+                  {phase.items.map((item, j) => (
+                    <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                      <span style={{ color: phase.stroke, fontWeight: 700, flexShrink: 0, fontSize: 16, marginTop: 2 }}>✦</span>
+                      <span style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text)', lineHeight: 1.4 }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                {phase.current && (
+                  <div style={{ marginTop: 8 }}>
+                    <TagPill color="var(--color-terracotta-light)">進行中</TagPill>
+                  </div>
+                )}
+                {phase.done && (
+                  <div style={{ marginTop: 8 }}>
+                    <TagPill color="oklch(90% 0.07 140 / 0.7)">已完成</TagPill>
+                  </div>
+                )}
+              </div>
+            </HandDrawnCard>
+          ))}
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SLIDE 14 — Closing: our belief
+// ═══════════════════════════════════════════════════════════════════════════
+function Slide14Closing() {
   return (
     <SlideFrame
       background="var(--color-terracotta)"
       grain={0.08}
-      chrome={<><BrandMark dark /><SlideNumber n={11} total={TOTAL_SLIDES} dark /></>}
+      chrome={<><BrandMark dark /><SlideNumber n={14} total={TOTAL_SLIDES} dark /></>}
       decor={
         <>
           <div style={{ position: 'absolute', top: '-12%', left: '-8%', opacity: 0.16, pointerEvents: 'none' }}>
@@ -832,6 +1174,7 @@ function Slide11Closing() {
 Object.assign(window, {
   TOTAL_SLIDES,
   Slide01Cover, Slide02Thesis, Slide03Beliefs, Slide04WhyNow,
-  Slide05Versus, Slide06Product, Slide07WhyUs, Slide08WhoWeServe,
-  Slide09Battlefield, Slide10HowToWin, Slide11Closing,
+  Slide05Versus, Slide06Product, Slide07WhyUs, Slide08Team,
+  Slide09WhoWeServe, Slide10Battlefield, Slide11HowToWin,
+  Slide12Budget, Slide13Timeline, Slide14Closing,
 });
