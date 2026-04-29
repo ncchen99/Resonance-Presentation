@@ -593,13 +593,10 @@ function Slide07WhyUs() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide08Team() {
   const members = [
-    { initials: '？', name: '姓名', dept: '系所', role: '負責業務項目', color: 'var(--color-terracotta-light)', seed: 11 },
-    { initials: '？', name: '姓名', dept: '系所', role: '負責業務項目', color: 'var(--color-sage)',             seed: 37 },
-    { initials: '？', name: '姓名', dept: '系所', role: '負責業務項目', color: 'var(--color-lavender)',         seed: 61 },
-  ];
-  const advisors = [
-    { initials: '？', name: '姓名', affiliation: '任職單位／職稱經歷', color: 'var(--color-yellow)', seed: 91 },
-    { initials: '？', name: '姓名', affiliation: '任職單位／職稱經歷', color: 'var(--color-sky)',    seed: 113 },
+    { initials: '陳', name: '陳念誠', dept: '資訊工程學系大五', role: 'Tuckin App 發想人', color: 'var(--color-terracotta-light)', seed: 11, photo: 'assets/陳念誠.jpg' },
+    { initials: '蕭', name: '蕭力文', dept: '工程科學系碩二', role: 'App 開發者・AI 應用專長', color: 'var(--color-sage)', seed: 37 },
+    { initials: '方', name: '方昱晴', dept: '資訊工程學系大三', role: '課程真實聚會提案驗證・賣帽帽負責人', color: 'var(--color-lavender)', seed: 61 },
+    { initials: '鄭', name: '鄭義信', dept: '成大工資管所 碩士\n工資管・電機 雙學士', role: '翔超科技 董事\n泳鉅鑫再生塑料 資訊顧問', color: 'var(--color-yellow)', seed: 83 },
   ];
 
   return (
@@ -618,56 +615,28 @@ function Slide08Team() {
           titleSize={TYPE_SCALE.title}
         />
 
-        {/* Team members */}
-        <div style={{ marginTop: 52, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+        {/* Team members — 2×2 grid */}
+        <div style={{ marginTop: 40, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 28, flex: 1 }}>
           {members.map((m, i) => (
-            <HandDrawnCard key={i} seed={m.seed} fill={m.color} stroke="oklch(36% 0.06 60 / 0.55)" padding={36}>
-              <div style={{ display: 'flex', flexDirection: 'row', gap: 28, alignItems: 'flex-start', height: '100%' }}>
-                {/* Left: avatar */}
+            <HandDrawnCard key={i} seed={m.seed} fill={m.color} stroke="oklch(36% 0.06 60 / 0.55)" padding={32}>
+              <div style={{ display: 'flex', flexDirection: 'row', gap: 24, alignItems: 'flex-start', height: '100%' }}>
                 <div style={{ flexShrink: 0 }}>
-                  <HandDrawnAvatar initials={m.initials} size={100} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} />
+                  <HandDrawnAvatar initials={m.initials} size={120} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} src={m.photo || null} />
                 </div>
-                {/* Right: 2-column grid (name+dept | role) */}
-                <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 24px', alignContent: 'start' }}>
-                  <div style={{ gridColumn: '1 / -1', fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, alignContent: 'start' }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                     {m.name}
                   </div>
-                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text-muted)', lineHeight: 1.4 }}>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text-muted)', lineHeight: 1.45, whiteSpace: 'pre-line' }}>
                     {m.dept}
                   </div>
-                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text)', lineHeight: 1.4 }}>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text)', lineHeight: 1.45, whiteSpace: 'pre-line' }}>
                     {m.role}
                   </div>
                 </div>
               </div>
             </HandDrawnCard>
           ))}
-        </div>
-
-        {/* Advisors */}
-        <div style={{ marginTop: 36 }}>
-          <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, marginBottom: 20 }}>
-            顧問群
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
-            {advisors.map((a, i) => (
-              <HandDrawnCard key={i} seed={a.seed} fill={a.color} stroke="oklch(36% 0.06 60 / 0.45)" padding={36}>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 28, minHeight: 140 }}>
-                  <div style={{ flexShrink: 0 }}>
-                    <HandDrawnAvatar initials={a.initials} size={80} color="oklch(97% 0.01 75 / 0.6)" seed={a.seed + 5} />
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 700, color: 'var(--color-text)', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
-                      {a.name}
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
-                      {a.affiliation}
-                    </div>
-                  </div>
-                </div>
-              </HandDrawnCard>
-            ))}
-          </div>
         </div>
       </div>
     </SlideFrame>
@@ -986,33 +955,28 @@ function Slide13Budget() {
           subtitle="以 NT$100,000 打造 MVP 並驗證產品市場"
         />
 
-        <div style={{ marginTop: 44, flex: 1, display: 'flex', gap: 60, alignItems: 'stretch' }}>
+        <div style={{ marginTop: 28, flex: 1, display: 'flex', gap: 40, alignItems: 'stretch' }}>
           {/* Left: bar chart */}
-          <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
             {items.map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <div style={{ width: 220, textAlign: 'right', flexShrink: 0 }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 30, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.1 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 28, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.1 }}>
                     {item.label}
                   </div>
-                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.eyebrow, color: 'var(--color-text-muted)', letterSpacing: '0.08em', marginTop: 2 }}>
-                    {item.en}
-                  </div>
                 </div>
-                <div style={{ flex: 1, height: 58, background: 'oklch(91% 0.015 75)', borderRadius: 12, overflow: 'hidden', position: 'relative' }}>
+                <div style={{ flex: 1, height: 40, background: 'oklch(91% 0.015 75)', borderRadius: 10, overflow: 'hidden', position: 'relative' }}>
                   <div style={{
                     width: `${item.pct}%`, height: '100%',
                     background: item.color,
-                    display: 'flex', alignItems: 'center', paddingLeft: 20,
-                    borderRadius: 12,
+                    borderRadius: 10,
                     transition: 'width 0.6s ease',
-                  }}>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: 22, fontWeight: 700, color: 'var(--color-text)', whiteSpace: 'nowrap' }}>
-                      {item.pct}%
-                    </span>
-                  </div>
+                  }} />
                 </div>
-                <div style={{ width: 160, flexShrink: 0, fontFamily: 'var(--font-heading)', fontSize: 28, fontWeight: 800, color: 'var(--color-text)', textAlign: 'right' }}>
+                <div style={{ width: 56, flexShrink: 0, fontFamily: 'var(--font-body)', fontSize: 20, fontWeight: 700, color: 'var(--color-text)' }}>
+                  {item.pct}%
+                </div>
+                <div style={{ width: 140, flexShrink: 0, fontFamily: 'var(--font-heading)', fontSize: 26, fontWeight: 800, color: 'var(--color-text)', textAlign: 'right' }}>
                   NT${item.amount.toLocaleString()}
                 </div>
               </div>
@@ -1020,7 +984,7 @@ function Slide13Budget() {
           </div>
 
           {/* Right: total + details */}
-          <div style={{ width: 360, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <div style={{ width: 440, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 24 }}>
             <HandDrawnCard seed={311} fill="var(--color-terracotta)" stroke="oklch(30% 0.14 45)" padding={40}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 4, color: 'var(--color-cream)' }}>
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.8 }}>
@@ -1059,7 +1023,7 @@ function Slide13Budget() {
 // SLIDE 14 — Timeline
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide14Timeline() {
-  const months = ['Apr', 'May', 'Jun', 'Jul', 'Aug'];
+  const months = ['Apr', 'May', 'Aug', 'Sep', 'Oct'];
   const phases = [
     {
       title: '規格確認',

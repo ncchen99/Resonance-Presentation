@@ -432,7 +432,43 @@ function OrganicButton({ children, variant = 'primary', onClick, style = {} }) {
 }
 
 // ── HandDrawnAvatar ───────────────────────────────────────────────────────────
-function HandDrawnAvatar({ initials='?', size=36, color='var(--color-terracotta-light)', seed=1 }) {
+function HandDrawnAvatar({ initials='?', size=36, color='var(--color-terracotta-light)', seed=1, src=null }) {
+  const clipId = `avatar-clip-${seed}-${size}`;
+  const path = React.useMemo(
+    () => wobRect(size, size, size * 0.4, seed, size * 0.022, {
+      segmentsH: 1, segmentsV: 1,
+      curve: 1.3, cornerJitter: 3.2, cornerOffset: size * 0.06,
+    }),
+    [size, seed]
+  );
+
+  if (src) {
+    return (
+      <div style={{ position:'relative', width:size, height:size, flexShrink:0 }}>
+        <svg
+          aria-hidden="true"
+          width={size} height={size}
+          viewBox={`0 0 ${size} ${size}`}
+          style={{ display:'block', overflow:'visible' }}
+        >
+          <defs>
+            <clipPath id={clipId}>
+              <path d={path} />
+            </clipPath>
+          </defs>
+          <image
+            href={src}
+            x={0} y={0}
+            width={size} height={size}
+            preserveAspectRatio="xMidYMin slice"
+            clipPath={`url(#${clipId})`}
+          />
+          <path d={path} fill="none" stroke="oklch(36% 0.06 60 / 0.55)" strokeWidth={1.5} strokeLinejoin="round" />
+        </svg>
+      </div>
+    );
+  }
+
   return (
     <div style={{ position:'relative', width:size, height:size, flexShrink:0 }}>
       <HandDrawnBorder
