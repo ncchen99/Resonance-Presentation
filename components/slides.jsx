@@ -720,7 +720,7 @@ function Slide09WhoWeServe() {
 // SVG is absolutely positioned so it never contributes to grid row sizing.
 // useElementSize measures the wrapper (which stretches to grid row height),
 // then passes that height explicitly to the SVG — no feedback loop.
-function HandDrawnVLine({ seed = 77, amp = 3.5, steps = 8, stroke = 'oklch(60% 0.07 70 / 0.5)', strokeWidth = 1.5 }) {
+function HandDrawnVLine({ seed = 77, amp = 3.5, steps = 8, stroke = 'oklch(60% 0.07 70 / 0.5)', strokeWidth = 3 }) {
   const H = 600;
   const wrapRef = React.useRef(null);
   const { h: wrapH } = useElementSize(wrapRef, 0, 0);
@@ -772,7 +772,7 @@ function Slide10Battlefield() {
           title="困難與產品創新"
         />
 
-        <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 20px 1.15fr', columnGap: 32, alignItems: 'start' }}>
+        <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 20px 1.15fr', columnGap: 32, alignItems: 'start' }}>
           {/* 起始點 — where we begin */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
             <Eyebrow color="var(--color-text-muted)">戰場 · 選擇的場域</Eyebrow>
@@ -928,11 +928,11 @@ function Slide12BusinessModel() {
           title="思想流通，永遠免費"
           highlight="永遠免費"
         />
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.body, color: 'var(--color-text-muted)', lineHeight: 1.55, margin: '16px 0 0', whiteSpace: 'nowrap' }}>
+        {/* <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.body, color: 'var(--color-text-muted)', lineHeight: 1.55, margin: '16px 0 0', whiteSpace: 'nowrap' }}>
           付費功能只提供 AI 寫作工具，不設內容牆──思想的流通，不應由錢包決定。
-        </p>
+        </p> */}
 
-        <div style={{ marginTop: 44, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 44, flex: 1 }}>
+        <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 44, flex: 1 }}>
           {/* Col 1: Free */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, marginBottom: 32 }}>
@@ -1016,7 +1016,7 @@ function Slide13Budget() {
         <SectionTitle
           eyebrow="第十一章 · 資源規劃"
           title="經費預估"
-          subtitle="以 NT$100,000 打造 MLP 並驗證產品市場"
+          subtitle="打造 MLP 並驗證產品市場"
         />
 
         <div style={{ marginTop: 28, flex: 1, display: 'flex', gap: 40, alignItems: 'stretch' }}>
