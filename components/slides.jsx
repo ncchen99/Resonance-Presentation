@@ -1,6 +1,6 @@
 // ── Resonance Pitch Deck · Slides 01–11 ──────────────────────────────────────
 
-const TOTAL_SLIDES = 14;
+const TOTAL_SLIDES = 15;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDE 01 — Cover
@@ -857,9 +857,111 @@ function Slide11HowToWin() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 12 — Budget
+// SLIDE 12 — Business Model
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide12Budget() {
+function Slide12BusinessModel() {
+  const freeItems = [
+    { label: '撰寫文章', desc: '不受限地記錄你的想法、洞見與故事' },
+    { label: '分享內容', desc: '讓你的文章在社群中自由流通，讓同頻的人找到你' },
+    { label: '閱讀他人作品', desc: '所有內容完全對所有人開放，思想的流通不設牆' },
+  ];
+
+  const paidItems = [
+    {
+      n: '01',
+      title: '智慧標籤整理',
+      desc: 'AI 根據你為文章設定的關鍵字標籤，自動分類與銜接卡片，讓你快速找到先前撰寫過的類似點子或故事延伸。',
+      fill: 'var(--color-terracotta-light)',
+      stroke: 'oklch(38% 0.11 55)',
+      seed: 171,
+    },
+    {
+      n: '02',
+      title: '卡片快速連結',
+      desc: '當文章或卡片中提到相關概念時，AI 幫你迅速串聯另一張卡片，協助快速釐清思緒，大幅提升寫作效率。',
+      fill: 'oklch(94% 0.032 290)',
+      stroke: 'oklch(42% 0.09 290)',
+      seed: 190,
+    },
+  ];
+
+  return (
+    <SlideFrame background="var(--color-cream)" grain={0.05}
+      chrome={<><BrandMark /><SlideNumber n={12} total={TOTAL_SLIDES} /></>}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <SectionTitle
+          eyebrow="第十章 · 營運模式"
+          title="思想流通，永遠免費"
+          highlight="永遠免費"
+          titleSize={TYPE_SCALE.title}
+        />
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.body, color: 'var(--color-text-muted)', lineHeight: 1.55, margin: '16px 0 0', whiteSpace: 'nowrap' }}>
+          付費功能只提供 AI 寫作工具，不設內容牆——思想的流通，不應由錢包決定。
+        </p>
+
+        <div style={{ marginTop: 44, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 44, flex: 1 }}>
+          {/* Col 1: Free */}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, marginBottom: 32 }}>
+              免費 · Free — 所有人皆可使用
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+              {freeItems.map((item, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 22, borderTop: '1px solid oklch(36% 0.06 60 / 0.15)', paddingTop: 28, paddingBottom: 28 }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text-muted)', minWidth: 44, lineHeight: 1, flexShrink: 0 }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.1, marginBottom: 8 }}>
+                      {item.label}
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
+                      {item.desc}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Col 2 & 3: Paid AI cards */}
+          {paidItems.map((item, i) => (
+            <div key={i} style={{ display: 'flex', flexDirection: 'column' }}>
+              {i === 0 && (
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.small, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-terracotta)', fontWeight: 700, marginBottom: 32 }}>
+                  付費 · Pro — AI 寫作工具
+                </div>
+              )}
+              {i === 1 && (
+                <div style={{ marginBottom: 32, visibility: 'hidden', fontSize: TYPE_SCALE.small }}>
+                  &nbsp;
+                </div>
+              )}
+              <HandDrawnCard seed={item.seed} fill={item.fill} stroke={item.stroke} padding={36} style={{ flex: 1 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: 16 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 76, fontWeight: 800, color: 'var(--color-text)', opacity: 0.75, lineHeight: 0.9, letterSpacing: '-0.03em' }}>
+                    {item.n}
+                  </div>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 700, color: 'var(--color-text)', margin: 0, lineHeight: 1.2 }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.55, margin: 0, textWrap: 'pretty' }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </HandDrawnCard>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SLIDE 13 — Budget
+// ═══════════════════════════════════════════════════════════════════════════
+function Slide13Budget() {
   const items = [
     { label: '產品開發', en: 'Development',    amount: 40000, pct: 40, color: 'var(--color-terracotta)',       detail: 'App 前後端開發、AI 推薦引擎整合' },
     { label: '行銷推廣', en: 'Marketing',       amount: 20000, pct: 20, color: 'var(--color-sage)',             detail: '社群行銷、KOL 合作、早期用戶招募' },
@@ -870,7 +972,7 @@ function Slide12Budget() {
 
   return (
     <SlideFrame background="var(--color-cream)" grain={0.05}
-      chrome={<><BrandMark /><SlideNumber n={12} total={TOTAL_SLIDES} /></>}
+      chrome={<><BrandMark /><SlideNumber n={13} total={TOTAL_SLIDES} /></>}
       decor={
         <div style={{ position: 'absolute', top: '-10%', right: '-6%', opacity: 0.18, pointerEvents: 'none' }}>
           <OrganiBlob variant={3} fill="var(--color-terracotta-light)" size={600} />
@@ -879,7 +981,7 @@ function Slide12Budget() {
     >
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
-          eyebrow="第十章 · 資源規劃"
+          eyebrow="第十一章 · 資源規劃"
           title="經費預估"
           subtitle="以 NT$100,000 打造 MVP 並驗證產品市場"
         />
@@ -954,9 +1056,9 @@ function Slide12Budget() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 13 — Timeline
+// SLIDE 14 — Timeline
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide13Timeline() {
+function Slide14Timeline() {
   const months = ['Apr', 'May', 'Jun', 'Jul', 'Aug'];
   const phases = [
     {
@@ -1002,10 +1104,10 @@ function Slide13Timeline() {
 
   return (
     <SlideFrame background="var(--color-cream-dark)" grain={0.05}
-      chrome={<><BrandMark /><SlideNumber n={13} total={TOTAL_SLIDES} /></>}>
+      chrome={<><BrandMark /><SlideNumber n={14} total={TOTAL_SLIDES} /></>}>
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <SectionTitle
-          eyebrow="第十一章 · 時程規劃"
+          eyebrow="第十二章 · 時程規劃"
           title="里程碑時間軸"
           titleSize={TYPE_SCALE.title}
         />
@@ -1120,14 +1222,14 @@ function Slide13Timeline() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// SLIDE 14 — Closing: our belief
+// SLIDE 15 — Closing: our belief
 // ═══════════════════════════════════════════════════════════════════════════
-function Slide14Closing() {
+function Slide15Closing() {
   return (
     <SlideFrame
       background="var(--color-terracotta)"
       grain={0.08}
-      chrome={<><BrandMark dark /><SlideNumber n={14} total={TOTAL_SLIDES} dark /></>}
+      chrome={<><BrandMark dark /><SlideNumber n={15} total={TOTAL_SLIDES} dark /></>}
       decor={
         <>
           <div style={{ position: 'absolute', top: '-12%', left: '-8%', opacity: 0.16, pointerEvents: 'none' }}>
@@ -1176,5 +1278,5 @@ Object.assign(window, {
   Slide01Cover, Slide02Thesis, Slide03Beliefs, Slide04WhyNow,
   Slide05Versus, Slide06Product, Slide07WhyUs, Slide08Team,
   Slide09WhoWeServe, Slide10Battlefield, Slide11HowToWin,
-  Slide12Budget, Slide13Timeline, Slide14Closing,
+  Slide12BusinessModel, Slide13Budget, Slide14Timeline, Slide15Closing,
 });
