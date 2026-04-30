@@ -37,6 +37,15 @@
     body { overflow: hidden; }
     deck-stage { display: block; width: 100%; height: 100vh; }
     deck-stage > section { background: var(--color-cream); }
+
+    /* Hide common browser extension injected buttons during print */
+    @media print {
+      [id*="rss"], [class*="rss"],
+      [id*="feed"], [class*="feed"],
+      [id*="extension"], [class*="extension"] {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>

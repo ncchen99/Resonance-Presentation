@@ -629,7 +629,13 @@ function Slide08Team() {
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%', paddingBottom: 80 }}>
         <SectionTitle
           eyebrow="第六章 · 團隊"
-          title="我們是誰"
+          title="頻審團"
+          subtitle={
+            <>
+              頻審團的工作是<span style={{ fontWeight: 600, position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>頻分<Squiggle color="var(--color-terracotta)" /></span>，將所有說故事的機會
+              <span style={{ fontWeight: 600, position: 'relative', display: 'inline-block', color: 'var(--color-terracotta)' }}>平分<Squiggle color="var(--color-terracotta)" /></span>給每一個人
+            </>
+          }
         />
 
         {/* Team members — 2×2 grid */}
@@ -987,20 +993,20 @@ function Slide12BusinessModel() {
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               {freeItems.map((item, i) => (
                 <React.Fragment key={i}>
-                <HandDrawnHLine seed={50 + i * 29} />
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 22, paddingTop: 28, paddingBottom: 28 }}>
-                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text-muted)', minWidth: 44, lineHeight: 1, flexShrink: 0 }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.1, marginBottom: 8 }}>
-                      {item.label}
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
-                      {item.desc}
+                  <HandDrawnHLine seed={50 + i * 29} />
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 22, paddingTop: 28, paddingBottom: 28 }}>
+                    <span style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text-muted)', minWidth: 44, lineHeight: 1, flexShrink: 0 }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-heading)', fontSize: 34, fontWeight: 700, color: 'var(--color-text)', lineHeight: 1.1, marginBottom: 8 }}>
+                        {item.label}
+                      </div>
+                      <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>
+                        {item.desc}
+                      </div>
                     </div>
                   </div>
-                </div>
                 </React.Fragment>
               ))}
             </div>
@@ -1045,11 +1051,11 @@ function Slide12BusinessModel() {
 // ═══════════════════════════════════════════════════════════════════════════
 function Slide13Budget() {
   const items = [
-    { label: '產品開發', en: 'Development', amount: 30000, pct: 30, color: 'var(--color-terracotta)', detail: 'AI 推薦引擎、APP 上架費用' },
-    { label: '伺服器基礎設施', en: 'Infrastructure', amount: 25000, pct: 25, color: 'var(--color-sky)', detail: '雲端主機、資料庫服務、API 費用' },
-    { label: '行銷推廣', en: 'Marketing', amount: 20000, pct: 20, color: 'var(--color-sage)', detail: '社群行銷、KOL 合作、早期用戶招募' },
-    { label: 'UI/UX 設計', en: 'Design', amount: 15000, pct: 15, color: 'var(--color-lavender)', detail: '介面設計、品牌識別系統、插圖素材' },
-    { label: '雜支備用', en: 'Contingency', amount: 10000, pct: 10, color: 'var(--color-yellow)', detail: '法律文件、行政費用、緊急備用金' },
+    { label: '平台開發費', en: 'Platform Dev', amount: 35000, pct: 35, color: 'var(--color-terracotta)', detail: 'AI 推薦引擎、APP 上架費' },
+    { label: '儀器/設備使用費', en: 'Equipment', amount: 25000, pct: 25, color: 'var(--color-sky)', detail: '雲端主機、資料庫、API' },
+    { label: '打樣費', en: 'Prototyping', amount: 15000, pct: 15, color: 'var(--color-lavender)', detail: 'UI/UX 設計、品牌識別、插圖素材' },
+    { label: '測試費', en: 'Testing', amount: 15000, pct: 15, color: 'var(--color-sage)', detail: '使用者測試招募、市場調研' },
+    { label: '顧問諮詢費', en: 'Consulting', amount: 10000, pct: 10, color: 'var(--color-yellow)', detail: '法律顧問、業師諮詢' },
   ];
 
   return (
