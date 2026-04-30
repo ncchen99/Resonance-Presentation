@@ -432,7 +432,7 @@ function OrganicButton({ children, variant = 'primary', onClick, style = {} }) {
 }
 
 // ── HandDrawnAvatar ───────────────────────────────────────────────────────────
-function HandDrawnAvatar({ initials='?', size=36, color='var(--color-terracotta-light)', seed=1, src=null }) {
+function HandDrawnAvatar({ initials='?', size=36, color='var(--color-terracotta-light)', seed=1, src=null, style=null }) {
   const clipId = `avatar-clip-${seed}-${size}`;
   const path = React.useMemo(
     () => wobRect(size, size, size * 0.4, seed, size * 0.022, {
@@ -442,14 +442,17 @@ function HandDrawnAvatar({ initials='?', size=36, color='var(--color-terracotta-
     [size, seed]
   );
 
+  const wrapperStyle = { position:'relative', ...(style ?? { width:size, height:size, flexShrink:0 }) };
+  const svgSize = style ? '100%' : size;
+
   if (src) {
     return (
-      <div style={{ position:'relative', width:size, height:size, flexShrink:0 }}>
+      <div style={wrapperStyle}>
         <svg
           aria-hidden="true"
-          width={size} height={size}
+          width={svgSize} height={svgSize}
           viewBox={`0 0 ${size} ${size}`}
-          style={{ display:'block', overflow:'visible' }}
+          style={{ display:'block', overflow:'visible', width:'100%', height:'100%' }}
         >
           <defs>
             <clipPath id={clipId}>
@@ -470,7 +473,7 @@ function HandDrawnAvatar({ initials='?', size=36, color='var(--color-terracotta-
   }
 
   return (
-    <div style={{ position:'relative', width:size, height:size, flexShrink:0 }}>
+    <div style={wrapperStyle}>
       <HandDrawnBorder
         w={size} h={size} R={size * 0.4} seed={seed}
         mag={size * 0.022}

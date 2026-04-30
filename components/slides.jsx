@@ -308,7 +308,7 @@ function Slide04WhyNow() {
                 共振放大的，是體悟
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, lineHeight: 1.55, margin: 0, color: 'oklch(96% 0.015 75 / 0.92)', textWrap: 'pretty' }}>
-                第一次，我們能透過 AI 對每篇故事取樣、建構詞向量──根據你的現況、你分享的文章、你記下的想法卡片，推薦真正能引發共鳴的體悟。
+                第一次，我們能透過 AI 對每篇故事<Highlight color="oklch(92% 0.12 88)">取樣、建構詞向量</Highlight>──根據<Highlight color="oklch(92% 0.12 88)">你的現況、你分享的文章、你記下的想法卡片</Highlight>，推薦真正能引發共鳴的<Highlight color="oklch(92% 0.12 88)">體悟</Highlight>。
               </p>
             </div>
           </HandDrawnCard>
@@ -422,14 +422,17 @@ function Slide06Product() {
 
           <div style={{ margin: '48px 0 0', display: 'flex', flexDirection: 'column' }}>
             {[
-              { k: '私下記錄', v: '先用卡片捕捉每個靈光，不必一次寫出完整故事' },
-              { k: 'AI 整理', v: '幫你找回過去的洞見，讓碎片成為故事的材料' },
-              { k: '你來述說', v: '故事永遠由你親自完成──真實感與人的溫度，無法外包' },
+              { k: '私下記錄', v: '先用卡片捕捉每個靈光，不必一次寫出完整故事', seed: 41 },
+              { k: 'AI 整理', v: '幫你找回過去的洞見，讓碎片成為故事的材料', seed: 67 },
+              { k: '你來述說', v: '故事永遠由你親自完成──真實感與人的溫度，無法外包', seed: 93 },
             ].map(item => (
-              <div key={item.k} style={{ borderTop: '1px solid oklch(36% 0.06 60 / 0.15)', paddingTop: 24, paddingBottom: 24 }}>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: 36, fontWeight: 700, color: 'var(--color-terracotta)', lineHeight: 1.1, marginBottom: 8 }}>{item.k}</div>
-                <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>{item.v}</div>
-              </div>
+              <React.Fragment key={item.k}>
+                <HandDrawnHLine seed={item.seed} />
+                <div style={{ paddingTop: 24, paddingBottom: 24 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 36, fontWeight: 700, color: 'var(--color-terracotta)', lineHeight: 1.1, marginBottom: 8 }}>{item.k}</div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text-muted)', lineHeight: 1.55 }}>{item.v}</div>
+                </div>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -623,20 +626,18 @@ function Slide08Team() {
         </div>
       }
     >
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%', paddingBottom: 80 }}>
         <SectionTitle
           eyebrow="第六章 · 團隊"
           title="我們是誰"
         />
 
         {/* Team members — 2×2 grid */}
-        <div style={{ marginTop: 40, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 28, flex: 1 }}>
+        <div style={{ marginTop: 40, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gridTemplateRows: 'repeat(2, 270px)', gap: 28 }}>
           {members.map((m, i) => (
             <HandDrawnCard key={i} seed={m.seed} fill={m.color} stroke="oklch(36% 0.06 60 / 0.55)" padding={32}>
-              <div style={{ display: 'flex', flexDirection: 'row', gap: 24, alignItems: 'flex-start', height: '100%' }}>
-                <div style={{ flexShrink: 0 }}>
-                  <HandDrawnAvatar initials={m.initials} size={160} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} src={m.photo || null} />
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'row', gap: 24, alignItems: 'stretch', height: '100%' }}>
+                <HandDrawnAvatar initials={m.initials} size={160} color="oklch(97% 0.01 75 / 0.7)" seed={m.seed + 5} src={m.photo || null} style={{ alignSelf: 'stretch', aspectRatio: '1 / 1', flexShrink: 0 }} />
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, alignContent: 'start' }}>
                   <div style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                     {m.name}
@@ -715,6 +716,49 @@ function Slide09WhoWeServe() {
           </div>
         </div>
       </div></SlideFrame>
+  );
+}
+
+// ── HandDrawnHLine ────────────────────────────────────────────────────────────
+// Horizontal companion to HandDrawnVLine — measures wrapper width via
+// ResizeObserver, then renders a wobbly SVG path scaled to fit.
+function HandDrawnHLine({ seed = 77, amp = 3, steps = 7, stroke = 'oklch(60% 0.07 70 / 0.4)', strokeWidth = 2.5 }) {
+  const W = 600;
+  const wrapRef = React.useRef(null);
+  const { w: wrapW } = useElementSize(wrapRef, 0, 0);
+  const path = React.useMemo(() => {
+    const rnd = makePrng(seed);
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps;
+      const x = t * W;
+      const y = (i === 0 || i === steps) ? 0 : (rnd() - 0.5) * 2 * amp;
+      pts.push([x, y]);
+    }
+    const f = n => +n.toFixed(2);
+    let d = `M ${f(pts[0][0])},${f(pts[0][1])}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1];
+      const [x1, y1] = pts[i];
+      const ctrl = (x1 - x0) / 3;
+      d += ` C ${f(x0 + ctrl)},${f(y0)} ${f(x1 - ctrl)},${f(y1)} ${f(x1)},${f(y1)}`;
+    }
+    return d;
+  }, [seed, amp, steps]);
+  const vbH = (amp + 3) * 2;
+  const svgW = Math.max(0, wrapW);
+  return (
+    <div ref={wrapRef} style={{ width: '100%', height: vbH, position: 'relative', flexShrink: 0 }}>
+      {svgW > 0 && (
+        <svg
+          viewBox={`0 ${-(vbH / 2)} ${W} ${vbH}`}
+          preserveAspectRatio="none"
+          style={{ position: 'absolute', top: '50%', left: 0, transform: 'translateY(-50%)', width: svgW, height: vbH }}
+        >
+          <path d={path} stroke={stroke} strokeWidth={strokeWidth} fill="none" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+        </svg>
+      )}
+    </div>
   );
 }
 
@@ -906,7 +950,7 @@ function Slide12BusinessModel() {
     {
       n: '01',
       title: '智慧標籤整理',
-      desc: 'AI 根據你為文章設定的關鍵字標籤，自動分類與銜接卡片，讓你快速找到先前撰寫過的類似點子或故事延伸。',
+      textNode: <>AI 根據你為文章設定的<Highlight color="oklch(38% 0.11 55)">關鍵字標籤</Highlight>，自動分類與銜接卡片，讓你<Highlight color="oklch(38% 0.11 55)">快速找到先前撰寫過的類似點子或故事延伸</Highlight>。</>,
       fill: 'var(--color-terracotta-light)',
       stroke: 'oklch(38% 0.11 55)',
       seed: 171,
@@ -914,7 +958,7 @@ function Slide12BusinessModel() {
     {
       n: '02',
       title: '卡片快速連結',
-      desc: '當文章或卡片中提到相關概念時，AI 幫你迅速串聯另一張卡片，協助快速釐清思緒，大幅提升寫作效率。',
+      textNode: <>當文章或卡片中提到相關概念時，AI 幫你<Highlight color="oklch(42% 0.09 290)">迅速串聯另一張卡片</Highlight>，協助快速釐清思緒，<Highlight color="oklch(42% 0.09 290)">大幅提升寫作效率</Highlight>。</>,
       fill: 'oklch(94% 0.032 290)',
       stroke: 'oklch(42% 0.09 290)',
       seed: 190,
@@ -942,7 +986,9 @@ function Slide12BusinessModel() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
               {freeItems.map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 22, borderTop: '1px solid oklch(36% 0.06 60 / 0.15)', paddingTop: 28, paddingBottom: 28 }}>
+                <React.Fragment key={i}>
+                <HandDrawnHLine seed={50 + i * 29} />
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 22, paddingTop: 28, paddingBottom: 28 }}>
                   <span style={{ fontFamily: 'var(--font-heading)', fontSize: 32, fontWeight: 800, color: 'var(--color-text-muted)', minWidth: 44, lineHeight: 1, flexShrink: 0 }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
@@ -955,6 +1001,7 @@ function Slide12BusinessModel() {
                     </div>
                   </div>
                 </div>
+                </React.Fragment>
               ))}
             </div>
           </div>
@@ -981,7 +1028,7 @@ function Slide12BusinessModel() {
                     {item.title}
                   </h3>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: TYPE_SCALE.bodySm, color: 'var(--color-text)', lineHeight: 1.55, margin: 0, textWrap: 'pretty' }}>
-                    {item.desc}
+                    {item.textNode}
                   </p>
                 </div>
               </HandDrawnCard>
